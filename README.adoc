@@ -1,5 +1,6 @@
 = Very simple kernel (vsk)
 :imagesdir: readme_assets
+:tip-caption: :bulb:
 
 VSK is a non-preemptive, run to completion, event driven kernel.
 It is a framework for managing tasks, states, and events within an application. 
@@ -58,6 +59,13 @@ The following diagram shows how to extend the active object class.
 
 .Extending active object
 image::diag-extending-active-object.png[Extending active object diagram, align="center"]
+
+[TIP]
+====
+An example of how to use the kernel can be seen in the following repo:
+
+image::https://github-readme-stats.vercel.app/api/pin/?username=alexmarincu&repo=tiva-playground&theme=github_dark_dimmed[Tiva Playground, link=https://github.com/alexmarincu/tiva-playground]
+====
 
 ---
 
