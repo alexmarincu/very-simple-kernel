@@ -1,0 +1,16 @@
+{
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Attach, AllowShortIfStatementsOnASingleLine: true, IndentCaseLabels: true, ColumnLimit: 0, AccessModifierOffset: -4, PointerAlignment: Middle, AllowShortFunctionsOnASingleLine: All, AllowShortBlocksOnASingleLine: true, AllowShortLoopsOnASingleLine: true, SpaceAfterCStyleCast: false, IndentPPDirectives: BeforeHash, AlignAfterOpenBracket: AlwaysBreak, Cpp11BracedListStyle: false }",
+    "ceedlingExplorer.debugConfiguration": "Test Debug",
+    "ceedlingExplorer.projectPath": "./very_simple_kernel",
+    "clangd.arguments": [
+        "--header-insertion=never",
+        "--compile-commands-dir=very_simple_kernel/build/artifacts"
+    ],
+    "C/C++ Include Guard.Macro Type": "Filename",
+    "C/C++ Include Guard.Comment Style": "Line",
+    "C/C++ Include Guard.Path Depth": 0,
+    "C/C++ Include Guard.Path Skip": 0,
+    "C/C++ Include Guard.Spaces After Endif": 1,
+    "C/C++ Include Guard.Remove Extension": false,
+}

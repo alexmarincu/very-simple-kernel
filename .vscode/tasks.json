@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "ceedling release",
+            "group": "build",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}/very_simple_kernel"
+            },
+            "presentation": {
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "ceedling clobber",
+            "group": "build",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}/very_simple_kernel"
+            },
+            "presentation": {
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Test",
+            "type": "shell",
+            "command": "ceedling test:all",
+            "group": "test",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}/very_simple_kernel"
+            },
+            "presentation": {
+                "panel": "new"
+            }
+        }
+    ]
+}

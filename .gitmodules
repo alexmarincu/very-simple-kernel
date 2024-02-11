@@ -1,0 +1,3 @@
+[submodule "c_tool_box"]
+	path = c_tool_box
+	url = https://github.com/alexmarincu/c-tool-box.git

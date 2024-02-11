@@ -1,0 +1,70 @@
+= Very simple kernel (vsk)
+:imagesdir: readme_assets
+
+VSK is a non-preemptive, run to completion, event driven kernel.
+It is a framework for managing tasks, states, and events within an application. 
+
+== Overview
+
+The following diagram represents an overview of the kernel, showing how different elements interact in a high-level view.
+
+.VSK overview
+image::diag-vsk-overview.png[VSK overview diagram, align="center"]
+
+== Key concept: Active object
+
+An active object is an event-driven, encapsulated software object running in its own thread/task and communicating asynchronously by means of events. These events are added to a queue or a message passing mechanism that the active object processes sequentially. This decouples the sender and receiver, allowing for non-blocking communication. When an event is received, the active object processes it in its own time, and the sender does not need to wait for an immediate response. This is especially valuable in scenarios where certain operations might take a significant amount of time to complete. They are particularly useful in systems where multiple tasks need to be performed concurrently, and a structured approach to handling asynchronous events is required to ensure modularity and maintainability in the codebase.
+
+.Active object
+image::active-object.png[Active object, width=400, align="center"]
+
+Active objects are designed to operate independently and do not need to have direct knowledge of or dependencies on other active objects. Instead, they communicate by raising and handling events. Here's how this decoupled communication works:
+
+.Event-Driven Communication:
+Each active object is responsible for its own functionality. It operates autonomously, responding to events as they occur. Events are specific occurrences or notifications that indicate something has happened, such as a sensor reading, a user input, or a system state change.
+
+.Event Raising:
+When an active object needs to inform the system about an event or state change, it raises an event. The event can carry relevant data, providing context about what occurred.
+
+.Event Handling:
+Other active objects within the system can subscribe to specific types of events. Subscribing means they express interest in receiving notifications about particular types of events. Active objects may specify event handlers or callback functions to execute when a subscribed event occurs.
+
+.Decoupled Communication:
+Importantly, active objects don't need to know which other active objects are interested in their events. They only need to raise the event when the relevant condition occurs. The event manager or takes care of delivering the event to the appropriate subscribers.
+
+.Flexibility and Extensibility:
+This approach makes the system more flexible and extensible. New active objects can be added to the system without requiring modifications to existing ones. They can subscribe to relevant events to participate in the system's behavior without directly coupling themselves to the existing active objects.
+
+.Isolation and Encapsulation:
+Active objects remain encapsulated and isolated from one another. They don't need to expose their internal details or tightly couple with other objects. This isolation simplifies debugging, testing, and maintenance.
+
+.Scalability:
+The event-driven, decoupled architecture also makes the system more scalable. As new features or components are added, they can interact with existing components through events, maintaining a clean and modular architecture.
+
+.Reduced Complexity:
+In complex software systems, the decoupled communication model reduces the complexity of managing inter-object dependencies. Active objects can focus on their core responsibilities, making the system more comprehensible and maintainable.
+
+== Creating a VSK app
+
+Creating an app using VSK can be done in 2 ways:
+
+.Classical approach using tasks
+Create the needed tasks and run the app functions in the task operations. Tasks in VSK are one shot run to completion operations. In order to run them several times they need to be activated using the `vsk_Task_activate` method. To run them cyclically they need to be paired with a periodic timer which will activate the task in its callback function.
+
+.Modern approach using active objects
+Create the needed active objects by extending `vsk_ActiveObject` class. If a state machine is necessary, create the needed states by extending `vsk_State` class and link them to the active object. Create the needed event subscriptions and provide the handlers for the events. Perform the needed functionality in the handlers.
+
+The following diagram shows how to extend the active object class.
+
+.Extending active object
+image::diag-extending-active-object.png[Extending active object diagram, align="center"]
+
+---
+
+*Consider sponsoring if you want to support this project:*
+
+https://github.com/sponsors/alexmarincu[image:https://img.shields.io/badge/github%20sponsor-%23EA4AAA?style=for-the-badge&logo=github&logoColor=white[Static Badge]]
+https://ko-fi.com/alexmarincu[image:https://img.shields.io/badge/ko--fi-%23F16061?style=for-the-badge&logo=ko-fi&logoColor=white[Static Badge]]
+https://www.buymeacoffee.com/alexmarincu[image:https://img.shields.io/badge/buy%20me%20a%20coffee-%23FFDD00?style=for-the-badge&logo=buy%20me%20a%20coffee&logoColor=black[Static Badge]]
+https://paypal.me/alexmarincu[image:https://img.shields.io/badge/paypal%20me-%2300457C?style=for-the-badge&logo=paypal&logoColor=white[Static Badge]]
+https://www.revolut.me/alexmarincu[image:https://img.shields.io/badge/revolut%20me-%232A60FD?style=for-the-badge&logo=revolut&logoColor=white[Static Badge]]

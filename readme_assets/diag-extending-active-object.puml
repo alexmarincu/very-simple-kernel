@@ -1,0 +1,29 @@
+@startuml diag-extending-active-object
+class App << (S,coral) >>
+together {
+    abstract class AppState
+    abstract class AppState1
+    class AppState11 << (S,coral) >>
+    class AppState12 << (S,coral) >>
+    class AppState2 << (S,coral) >>
+}
+class vsk_EventSubscription
+abstract class vsk_ActiveObject
+abstract class vsk_StateContext
+abstract class vsk_State
+App -d-|> vsk_ActiveObject
+App *-d-> "1..*" vsk_EventSubscription : "has"
+App .r.> AppState : "delegates behavior to"
+App .u.> AppState2 : "initializes"
+App .u.> AppState11 : "initializes"
+App .u.> AppState12 : "initializes"
+AppState -d-|> vsk_State
+AppState1 -d-|> AppState
+AppState11 -d-|> AppState1
+AppState12 -d-|> AppState1
+AppState2 -d-|> AppState
+vsk_ActiveObject -r-|> vsk_StateContext
+vsk_StateContext o-r-> vsk_State : "holds the current"
+vsk_State o-l-> vsk_StateContext : "is associated with"
+vsk_EventSubscription -[hidden]r- vsk_ActiveObject
+@enduml

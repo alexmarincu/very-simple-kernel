@@ -1,0 +1,41 @@
+@startuml diag-vsk-overview
+abstract class vsk_StateContext
+abstract class vsk_State
+abstract class vsk_ActiveObject
+class vsk_Task
+class vsk_TaskScheduler << (S,coral) >>
+class vsk_Inbox
+class vsk_InboxSupervisor << (S,coral) >>
+class vsk_Message
+class vsk_EventSubscription
+abstract class vsk_Event
+class vsk_OnStartEvent << (S,coral) >>
+class vsk_EventTimer
+class vsk_TaskScheduler << (S,coral) >>
+class vsk_Timer
+class vsk_TimerSupervisor << (S,coral) >>
+class vsk_Time << (S,coral) >>
+vsk_StateContext o-r-> vsk_State : "holds the current"
+vsk_State o-l-> vsk_StateContext : "is associated with"
+vsk_ActiveObject -u-|> vsk_StateContext
+vsk_ActiveObject *-l-> vsk_Task : "has"
+vsk_ActiveObject *-d-> vsk_Inbox : "has"
+vsk_ActiveObject *-d-> vsk_EventSubscription : "has"
+vsk_ActiveObject .r.> vsk_OnStartEvent : "subscribes to"
+vsk_Task .u.> vsk_TaskScheduler : "registers self to    "
+vsk_TaskScheduler o-d-> "0..*" vsk_Task : "manages list of / \l runs"
+vsk_Inbox o-u-> vsk_Task : "is associated with / \l activates"
+vsk_Inbox o-d-> "0..*" vsk_Message : "manages list of"
+vsk_Inbox .d.> vsk_InboxSupervisor : "registers self to    "
+vsk_InboxSupervisor o-u-> "0..*" vsk_Inbox : "manages list of / \l ticks"
+vsk_EventSubscription o-l-> vsk_Inbox : "                   is associated with / \l                    posts message to"
+vsk_EventSubscription *-d-> vsk_Message : "has"
+vsk_Event o-l-> "0..*" vsk_EventSubscription : "manages list of / \l publishes to"
+vsk_OnStartEvent -d-|> vsk_Event
+vsk_EventTimer -u-|> vsk_Timer
+vsk_EventTimer o-l-> vsk_Event : "is associated with / \l raises"
+vsk_TaskScheduler .r.> vsk_OnStartEvent : "raises"
+vsk_Timer .u.> vsk_TimerSupervisor : "registers self to        "
+vsk_TimerSupervisor o-d-> "0..*" vsk_Timer : "manages list of / \l ticks"
+vsk_Timer .l.> vsk_Time : "uses"
+@enduml

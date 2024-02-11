@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "ms-vscode.cpptools",
+        "llvm-vs-code-extensions.vscode-clangd",
+        "akiramiyakoda.cppincludeguard",
+        "numaru.vscode-ceedling-test-adapter",
+        "redhat.vscode-yaml"
+    ]
+}
