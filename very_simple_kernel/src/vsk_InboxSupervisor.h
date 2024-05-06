@@ -17,5 +17,5 @@ vsk_InboxSupervisor * vsk_InboxSupervisor_init(
 void vsk_InboxSupervisor_register(
     vsk_InboxSupervisor * const self, vsk_Inbox * const inbox
 );
-void vsk_InboxSupervisor_onSysTick(vsk_InboxSupervisor * const self);
+void vsk_InboxSupervisor_onTick(vsk_InboxSupervisor * const self);
 #endif // VSK_INBOXSUPERVISOR_H

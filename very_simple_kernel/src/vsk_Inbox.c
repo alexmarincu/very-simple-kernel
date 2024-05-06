@@ -45,7 +45,7 @@ void vsk_Inbox_clear(vsk_Inbox * const self) {
     vsk_CriticalSection_exit(vsk_CriticalSection_());
 }
 /*----------------------------------------------------------------------------*/
-void vsk_Inbox_onSysTick(vsk_Inbox * const self) {
+void vsk_Inbox_onTick(vsk_Inbox * const self) {
     if (!vsk_Inbox_isEmpty(self)) {
         vsk_Task_activate(self->task);
     }

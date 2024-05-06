@@ -31,5 +31,5 @@ vsk_Timer * vsk_Timer_init(
 void vsk_Timer_start(vsk_Timer * const self);
 void vsk_Timer_stop(vsk_Timer * const self);
 bool vsk_Timer_isRunning(vsk_Timer * const self);
-void vsk_Timer_onSysTick(vsk_Timer * const self);
+void vsk_Timer_onTick(vsk_Timer * const self);
 #endif // VSK_TIMER_H

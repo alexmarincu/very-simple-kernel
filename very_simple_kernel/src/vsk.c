@@ -26,8 +26,8 @@ void vsk_start(
     vsk_TaskScheduler_start(vsk_TaskScheduler_());
 }
 /*----------------------------------------------------------------------------*/
-void vsk_onSysTick(void) {
-    vsk_Time_onSysTick(vsk_Time_());
-    vsk_TimerSupervisor_onSysTick(vsk_TimerSupervisor_());
-    vsk_InboxSupervisor_onSysTick(vsk_InboxSupervisor_());
+void vsk_onTick(void) {
+    vsk_Time_onTick(vsk_Time_());
+    vsk_TimerSupervisor_onTick(vsk_TimerSupervisor_());
+    vsk_InboxSupervisor_onTick(vsk_InboxSupervisor_());
 }

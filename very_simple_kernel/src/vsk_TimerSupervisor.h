@@ -18,5 +18,5 @@ vsk_TimerSupervisor * vsk_TimerSupervisor_init(
 void vsk_TimerSupervisor_register(
     vsk_TimerSupervisor * const self, vsk_Timer * const timer
 );
-void vsk_TimerSupervisor_onSysTick(vsk_TimerSupervisor * const self);
+void vsk_TimerSupervisor_onTick(vsk_TimerSupervisor * const self);
 #endif // VSK_TIMERSUPERVISOR_H

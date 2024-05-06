@@ -19,12 +19,12 @@ void vsk_TimerSupervisor_register(
     ctb_LinkedList_addLast(&self->timers, (ctb_Node *)timer);
 }
 /*----------------------------------------------------------------------------*/
-static void vsk_onSysTick(vsk_Timer * const timer) {
-    vsk_Timer_onSysTick(timer);
+static void vsk_onTick(vsk_Timer * const timer) {
+    vsk_Timer_onTick(timer);
 }
 /*----------------------------------------------------------------------------*/
-void vsk_TimerSupervisor_onSysTick(vsk_TimerSupervisor * const self) {
+void vsk_TimerSupervisor_onTick(vsk_TimerSupervisor * const self) {
     ctb_LinkedList_forEach(
-        &self->timers, (ctb_LinkedListIteratorForEachOperation)vsk_onSysTick
+        &self->timers, (ctb_LinkedListIteratorForEachOperation)vsk_onTick
     );
 }

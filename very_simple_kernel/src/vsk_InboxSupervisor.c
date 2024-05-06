@@ -19,12 +19,12 @@ void vsk_InboxSupervisor_register(
     ctb_LinkedList_addLast(&self->inboxes, (ctb_Node *)inbox);
 }
 /*----------------------------------------------------------------------------*/
-static void vsk_onSysTick(vsk_Inbox * const inbox) {
-    vsk_Inbox_onSysTick(inbox);
+static void vsk_onTick(vsk_Inbox * const inbox) {
+    vsk_Inbox_onTick(inbox);
 }
 /*----------------------------------------------------------------------------*/
-void vsk_InboxSupervisor_onSysTick(vsk_InboxSupervisor * const self) {
+void vsk_InboxSupervisor_onTick(vsk_InboxSupervisor * const self) {
     ctb_LinkedList_forEach(
-        &self->inboxes, (ctb_LinkedListIteratorForEachOperation)vsk_onSysTick
+        &self->inboxes, (ctb_LinkedListIteratorForEachOperation)vsk_onTick
     );
 }

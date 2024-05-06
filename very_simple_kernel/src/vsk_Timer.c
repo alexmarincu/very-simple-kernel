@@ -39,7 +39,7 @@ bool vsk_Timer_isRunning(vsk_Timer * const self) {
     return self->isRunning;
 }
 /*----------------------------------------------------------------------------*/
-void vsk_Timer_onSysTick(vsk_Timer * const self) {
+void vsk_Timer_onTick(vsk_Timer * const self) {
     if (self->isRunning) {
         uint16_t const tickPeriodMillis =
             vsk_Time_getTickPeriodMillis(vsk_Time_());

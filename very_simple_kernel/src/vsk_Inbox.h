@@ -19,5 +19,5 @@ bool vsk_Inbox_isEmpty(vsk_Inbox * const self);
 void vsk_Inbox_postMessage(vsk_Inbox * const self, vsk_Message * const message);
 vsk_Message * vsk_Inbox_readMessage(vsk_Inbox * const self);
 void vsk_Inbox_clear(vsk_Inbox * const self);
-void vsk_Inbox_onSysTick(vsk_Inbox * const self);
+void vsk_Inbox_onTick(vsk_Inbox * const self);
 #endif // VSK_INBOX_H

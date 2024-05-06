@@ -14,5 +14,5 @@ void vsk_start(
     vsk_CriticalSectionOnExit const onCriticalSectionExit,
     vsk_AssertOnFail const onAssertFail
 );
-void vsk_onSysTick(void);
+void vsk_onTick(void);
 #endif // VSK_KERNEL_H
