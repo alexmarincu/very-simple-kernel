@@ -4,22 +4,21 @@
 /*----------------------------------------------------------------------------*/
 typedef struct vsk_Timer vsk_Timer;
 /*----------------------------------------------------------------------------*/
+#include <stdbool.h>
 #include <stdint.h>
 /*----------------------------------------------------------------------------*/
-#include "vsk_TimerSupervisor.h"
+#include "../../c_tool_box/c_tool_box/src/ctb_Node.h"
 /*----------------------------------------------------------------------------*/
 typedef void (*vsk_TimerCallback)(void * const obj);
 /*----------------------------------------------------------------------------*/
 struct vsk_Timer {
-    struct {
-        ctb_Node node;
-    } _super;
-    uint32_t _delayMillis;
-    uint32_t _periodMillis;
-    vsk_TimerCallback _callback;
-    void * _obj;
-    uint32_t volatile _millisCountDown;
-    bool volatile _isRunning;
+    ctb_Node node;
+    uint32_t delayMillis;
+    uint32_t periodMillis;
+    vsk_TimerCallback callback;
+    void * obj;
+    uint32_t volatile millisCountDown;
+    bool volatile isRunning;
 };
 /*----------------------------------------------------------------------------*/
 vsk_Timer * vsk_Timer_init(

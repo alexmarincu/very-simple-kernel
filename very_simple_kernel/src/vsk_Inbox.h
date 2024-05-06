@@ -9,11 +9,9 @@ typedef struct vsk_Inbox vsk_Inbox;
 #include "vsk_Task.h"
 /*----------------------------------------------------------------------------*/
 struct vsk_Inbox {
-    struct {
-        ctb_Node node;
-    } _super;
-    vsk_Task * _task;
-    ctb_LinkedQueue _messageQueue;
+    ctb_Node node;
+    vsk_Task * task;
+    ctb_LinkedQueue messageQueue;
 };
 /*----------------------------------------------------------------------------*/
 vsk_Inbox * vsk_Inbox_init(vsk_Inbox * const self, vsk_Task * const task);

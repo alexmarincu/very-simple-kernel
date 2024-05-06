@@ -8,10 +8,8 @@ typedef struct vsk_EventTimer vsk_EventTimer;
 #include "vsk_Timer.h"
 /*----------------------------------------------------------------------------*/
 struct vsk_EventTimer {
-    struct {
-        vsk_Timer timer;
-    } _super;
-    vsk_Event * _event;
+    vsk_Timer timer;
+    vsk_Event * event;
 };
 /*----------------------------------------------------------------------------*/
 vsk_EventTimer * vsk_EventTimer_init(

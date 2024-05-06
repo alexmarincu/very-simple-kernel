@@ -7,8 +7,8 @@ typedef struct vsk_StateContext vsk_StateContext;
 #include "vsk_State.h"
 /*----------------------------------------------------------------------------*/
 struct vsk_StateContext {
-    vsk_State * _state;
-    vsk_State * _initialState;
+    vsk_State * state;
+    vsk_State * initialState;
 };
 /*----------------------------------------------------------------------------*/
 vsk_StateContext * vsk_StateContext_init(

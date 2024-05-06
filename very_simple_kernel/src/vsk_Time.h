@@ -7,9 +7,9 @@ typedef struct vsk_Time vsk_Time;
 #include <stdint.h>
 /*----------------------------------------------------------------------------*/
 struct vsk_Time {
-    uint16_t _tickPeriodMillis;
-    uint32_t volatile _millisCount;
-    uint32_t volatile _opTimeSeconds;
+    uint16_t tickPeriodMillis;
+    uint32_t volatile millisCount;
+    uint32_t volatile opTimeSeconds;
 };
 /*----------------------------------------------------------------------------*/
 vsk_Time * vsk_Time_(void);

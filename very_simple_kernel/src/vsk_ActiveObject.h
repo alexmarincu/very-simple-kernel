@@ -9,14 +9,12 @@ typedef struct vsk_ActiveObject vsk_ActiveObject;
 #include "vsk_Task.h"
 /*----------------------------------------------------------------------------*/
 struct vsk_ActiveObject {
-    struct {
-        vsk_StateContext stateContext;
-    } _super;
-    vsk_Task _task;
-    vsk_Inbox _inbox;
+    vsk_StateContext stateContext;
+    vsk_Task task;
+    vsk_Inbox inbox;
     struct {
         vsk_EventSubscription onStart;
-    } _eventSubscriptions;
+    } eventSubscriptions;
 };
 /*----------------------------------------------------------------------------*/
 vsk_ActiveObject * vsk_ActiveObject_init(

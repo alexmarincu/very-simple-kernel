@@ -9,7 +9,7 @@ typedef struct vsk_Assert vsk_Assert;
 typedef void (*vsk_AssertOnFail)(void);
 /*----------------------------------------------------------------------------*/
 struct vsk_Assert {
-    vsk_AssertOnFail _onFail;
+    vsk_AssertOnFail onFail;
 };
 /*----------------------------------------------------------------------------*/
 vsk_Assert * vsk_Assert_(void);

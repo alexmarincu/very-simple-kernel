@@ -7,7 +7,7 @@ typedef struct vsk_InboxSupervisor vsk_InboxSupervisor;
 #include "vsk_Inbox.h"
 /*----------------------------------------------------------------------------*/
 struct vsk_InboxSupervisor {
-    ctb_LinkedList _inboxes;
+    ctb_LinkedList inboxes;
 };
 /*----------------------------------------------------------------------------*/
 vsk_InboxSupervisor * vsk_InboxSupervisor_(void);

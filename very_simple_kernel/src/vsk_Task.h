@@ -17,16 +17,14 @@ typedef enum {
 } vsk_TaskState;
 /*----------------------------------------------------------------------------*/
 struct vsk_Task {
-    struct {
-        ctb_Node node;
-    } _super;
-    vsk_TaskOperation _operation;
-    void * _obj;
-    vsk_TaskState _state;
-    uint32_t _lastStartTimeMillis;
-    uint32_t _maxRunTimeMillis;
-    uint32_t _minPeriodMillis;
-    uint32_t _cpuLoad;
+    ctb_Node node;
+    vsk_TaskOperation operation;
+    void * obj;
+    vsk_TaskState state;
+    uint32_t lastStartTimeMillis;
+    uint32_t maxRunTimeMillis;
+    uint32_t minPeriodMillis;
+    uint32_t cpuLoad;
 };
 /*----------------------------------------------------------------------------*/
 vsk_Task * vsk_Task_init(

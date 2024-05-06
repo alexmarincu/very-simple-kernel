@@ -8,11 +8,9 @@ typedef struct vsk_Message vsk_Message;
 typedef void (*vsk_MessageHandler)(void * const obj);
 /*----------------------------------------------------------------------------*/
 struct vsk_Message {
-    struct {
-        ctb_Node node;
-    } _super;
-    vsk_MessageHandler _handler;
-    void * _obj;
+    ctb_Node node;
+    vsk_MessageHandler handler;
+    void * obj;
 };
 /*----------------------------------------------------------------------------*/
 vsk_Message * vsk_Message_init(

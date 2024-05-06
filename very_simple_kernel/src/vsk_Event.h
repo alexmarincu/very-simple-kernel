@@ -8,7 +8,7 @@ typedef struct vsk_Event vsk_Event;
 #include "vsk_EventSubscription.h"
 /*----------------------------------------------------------------------------*/
 struct vsk_Event {
-    ctb_LinkedList _eventSubscriptions;
+    ctb_LinkedList eventSubscriptions;
 };
 /*----------------------------------------------------------------------------*/
 vsk_Event * vsk_Event_init(vsk_Event * const self);

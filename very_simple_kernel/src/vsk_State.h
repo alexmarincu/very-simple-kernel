@@ -12,9 +12,9 @@ typedef void (*vsk_StateOnEnter)(vsk_State * const self);
 typedef void (*vsk_StateOnExit)(vsk_State * const self);
 /*----------------------------------------------------------------------------*/
 struct vsk_State {
-    vsk_StateContext * _stateContext;
-    vsk_StateOnEnter _onEnter;
-    vsk_StateOnExit _onExit;
+    vsk_StateContext * stateContext;
+    vsk_StateOnEnter onEnter;
+    vsk_StateOnExit onExit;
 };
 /*----------------------------------------------------------------------------*/
 vsk_State * vsk_State_init(

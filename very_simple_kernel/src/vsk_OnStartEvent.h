@@ -7,9 +7,7 @@ typedef struct vsk_OnStartEvent vsk_OnStartEvent;
 #include "vsk_Event.h"
 /*----------------------------------------------------------------------------*/
 struct vsk_OnStartEvent {
-    struct {
-        vsk_Event event;
-    } _super;
+    vsk_Event event;
 };
 /*----------------------------------------------------------------------------*/
 vsk_OnStartEvent * vsk_OnStartEvent_(void);

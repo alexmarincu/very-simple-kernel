@@ -8,11 +8,9 @@ typedef struct vsk_EventSubscription vsk_EventSubscription;
 #include "vsk_Message.h"
 /*----------------------------------------------------------------------------*/
 struct vsk_EventSubscription {
-    struct {
-        ctb_Node node;
-    } _super;
-    vsk_Inbox * _inbox;
-    vsk_Message _message;
+    ctb_Node node;
+    vsk_Inbox * inbox;
+    vsk_Message message;
 };
 /*----------------------------------------------------------------------------*/
 vsk_EventSubscription * vsk_EventSubscription_init(

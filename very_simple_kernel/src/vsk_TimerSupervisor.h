@@ -8,7 +8,7 @@ typedef struct vsk_TimerSupervisor vsk_TimerSupervisor;
 #include "vsk_Timer.h"
 /*----------------------------------------------------------------------------*/
 struct vsk_TimerSupervisor {
-    ctb_LinkedList _timers;
+    ctb_LinkedList timers;
 };
 /*----------------------------------------------------------------------------*/
 vsk_TimerSupervisor * vsk_TimerSupervisor_(void);
