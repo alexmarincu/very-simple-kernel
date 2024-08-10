@@ -9,6 +9,7 @@ static void vsk_dispatchMessage(vsk_ActiveObject * const self) {
     vsk_Message_dispatch(vsk_Inbox_readMessage(&self->inbox));
 }
 /*----------------------------------------------------------------------------*/
+// cppcheck-suppress unusedFunction // API function
 vsk_ActiveObject * vsk_ActiveObject_init(
     vsk_ActiveObject * const self, vsk_State * const initialState
 ) {

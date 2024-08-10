@@ -19,6 +19,7 @@ vsk_Task * vsk_Task_init(
 }
 /*----------------------------------------------------------------------------*/
 bool vsk_Task_isReady(vsk_Task * const self) {
+    (void)self;
     return self->state == vsk_TaskState_ready;
 }
 /*----------------------------------------------------------------------------*/
@@ -70,6 +71,7 @@ void vsk_Task_activate(vsk_Task * const self) {
     }
 }
 /*----------------------------------------------------------------------------*/
+// cppcheck-suppress unusedFunction // API function
 void vsk_Task_suspend(vsk_Task * const self) {
     switch (self->state) {
         case vsk_TaskState_running: {
