@@ -16,4 +16,8 @@
     IndentPPDirectives: None,
     AlignAfterOpenBracket: BlockIndent,
     Cpp11BracedListStyle: false,
+    AlignArrayOfStructures: Right,
+    AlignConsecutiveAssignments: Consecutive,
+    AlignConsecutiveMacros: Consecutive,
+    AlignConsecutiveDeclarations: Consecutive,
 }

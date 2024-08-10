@@ -5,6 +5,7 @@ static void vsk_raiseEvent(vsk_EventTimer * const self) {
     vsk_Event_raise(self->event);
 }
 /*----------------------------------------------------------------------------*/
+// cppcheck-suppress unusedFunction // API function
 vsk_EventTimer * vsk_EventTimer_init(
     vsk_EventTimer * const self,
     uint32_t const delayMillis,

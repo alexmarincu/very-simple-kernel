@@ -39,6 +39,56 @@
             "presentation": {
                 "panel": "new"
             }
+        },
+        {
+            "label": "Lint",
+            "type": "shell",
+            "command": "${command:python.interpreterPath} ./run-cppcheck.py",
+            "group": "build",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "panel": "new"
+            }
+        },
+        {
+            "label": "CCM",
+            "type": "shell",
+            "command": "${command:python.interpreterPath} ./run-lizard.py",
+            "group": "build",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Changelog",
+            "type": "shell",
+            "command": "${command:python.interpreterPath} ./changelog.py ${input:previousVersion} ${input:newVersion}",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "panel": "new"
+            }
+        },
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "previousVersion",
+            "description": "Previous version"
+        },
+        {
+            "type": "promptString",
+            "id": "newVersion",
+            "description": "New version"
         }
     ]
 }

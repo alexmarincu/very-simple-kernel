@@ -39,6 +39,7 @@ vsk_Message * vsk_Inbox_readMessage(vsk_Inbox * const self) {
     return message;
 }
 /*----------------------------------------------------------------------------*/
+// cppcheck-suppress unusedFunction // API function
 void vsk_Inbox_clear(vsk_Inbox * const self) {
     vsk_CriticalSection_enter(vsk_CriticalSection_());
     ctb_LinkedQueue_clear(&self->messageQueue);

@@ -1,18 +1,82 @@
 {
-    "C_Cpp.intelliSenseEngine": "disabled",
     "ceedlingExplorer.debugConfiguration": "Test Debug",
     "ceedlingExplorer.projectPath": "./very_simple_kernel",
-    "clangd.arguments": [
-        "--header-insertion=never",
-        "--compile-commands-dir=very_simple_kernel/build/artifacts"
+    // c intellisense {
+    "C_Cpp.default.compilerPath": "/usr/bin/arm-none-eabi-gcc",
+    "C_Cpp.default.systemIncludePath": [
+        // "/lib/gcc/arm-none-eabi/14.1.0/include"
     ],
-    "[c]": {
-        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
-    },
-    "C/C++ Include Guard.Macro Type": "Filename",
+    "C_Cpp.default.browse.path": [
+        "${workspaceFolder}/very_simple_kernel/src/**"
+    ],
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/very_simple_kernel/src",
+        "${workspaceFolder}/c_tool_box/c_tool_box/src",
+    ],
+    // "C_Cpp.default.intelliSenseMode": "linux-gcc-arm",
+    "C_Cpp.default.cStandard": "c11",
+    "C_Cpp.default.browse.limitSymbolsToIncludedHeaders": true,
+    "C_Cpp.default.compilerArgs": [],
+    "C/C++ Include Guard.Remove Extension": false,
     "C/C++ Include Guard.Comment Style": "Line",
+    "C/C++ Include Guard.Macro Type": "Filename",
     "C/C++ Include Guard.Path Depth": 0,
     "C/C++ Include Guard.Path Skip": 0,
     "C/C++ Include Guard.Spaces After Endif": 1,
-    "C/C++ Include Guard.Remove Extension": false,
+    // } c intellisense
+    // c lint {
+    "c-cpp-flylint.lizard.extraArgs": [
+        "-Tcyclomatic_complexity=10",
+        "-Tparameter_count=5",
+        "-Tnloc=50",
+        "-m",
+        "-lc"
+    ],
+    "c-cpp-flylint.cppcheck.extraArgs": [
+        "--enable=all",
+        "--language=c",
+        "--std=c11",
+        "--suppress=checkersReport",
+        "--suppress=unmatchedSuppression",
+        "--suppress=normalCheckLevelMaxBranches",
+        "--suppress=checkLevelNormal",
+        "--suppress=unusedFunction",
+        "--suppress=unusedStructMember",
+        "--suppress=missingIncludeSystem",
+        "--inline-suppr",
+        // Defines {
+        // "-Ddefine",
+        // } Defines
+        // Includes {
+        // "-Ipath/",
+        // } Includes
+        // Excludes {
+        // "-ipath/",
+        // } Excludes
+        // Ignore 3rd party {
+        // "--suppress=*:path/*.h",
+        // } Ignore 3rd party
+    ],
+    "c-cpp-flylint.flexelint.enable": false,
+    "c-cpp-flylint.clang.enable": false,
+    "c-cpp-flylint.flawfinder.enable": false,
+    // } c lint
+    // python {
+    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.importFormat": "relative",
+    "python.analysis.inlayHints.callArgumentNames": "all",
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.pytestParameters": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "autopep8.args": [
+        "--aggressive",
+        "--max-line-length=200"
+    ],
+    "mypy-type-checker.reportingScope": "workspace",
+    // } python
+    "git.ignoredRepositories": [
+        "c_tool_box"
+    ]
 }

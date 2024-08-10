@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------*/
-#ifndef VSK_KERNEL_H
-#define VSK_KERNEL_H
+#ifndef VSK_H
+#define VSK_H
 /*----------------------------------------------------------------------------*/
 #include "vsk_Assert.h"
 #include "vsk_CriticalSection.h"
@@ -15,4 +15,4 @@ void vsk_start(
     vsk_AssertOnFail const onAssertFail
 );
 void vsk_onTick(void);
-#endif // VSK_KERNEL_H
+#endif // VSK_H

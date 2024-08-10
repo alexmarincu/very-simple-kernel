@@ -25,17 +25,21 @@ vsk_Timer * vsk_Timer_init(
     return self;
 }
 /*----------------------------------------------------------------------------*/
+// cppcheck-suppress unusedFunction // API function
 void vsk_Timer_start(vsk_Timer * const self) {
     self->millisCountDown = self->delayMillis;
     self->isRunning = true;
 }
 /*----------------------------------------------------------------------------*/
+// cppcheck-suppress unusedFunction // API function
 void vsk_Timer_stop(vsk_Timer * const self) {
     self->isRunning = false;
     self->millisCountDown = 0;
 }
 /*----------------------------------------------------------------------------*/
+// cppcheck-suppress unusedFunction // API function
 bool vsk_Timer_isRunning(vsk_Timer * const self) {
+    (void)self;
     return self->isRunning;
 }
 /*----------------------------------------------------------------------------*/

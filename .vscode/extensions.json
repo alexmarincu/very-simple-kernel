@@ -4,6 +4,11 @@
         "llvm-vs-code-extensions.vscode-clangd",
         "akiramiyakoda.cppincludeguard",
         "numaru.vscode-ceedling-test-adapter",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "jbenden.c-cpp-flylint",
+        "ms-python.python",
+        "ms-python.isort",
+        "ms-python.mypy-type-checker",
+        "ms-python.autopep8"
     ]
 }

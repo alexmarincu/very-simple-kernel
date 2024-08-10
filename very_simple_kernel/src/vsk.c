@@ -6,6 +6,7 @@
 #include "vsk_Time.h"
 #include "vsk_TimerSupervisor.h"
 /*----------------------------------------------------------------------------*/
+// cppcheck-suppress unusedFunction // API function
 void vsk_start(
     uint16_t const tickPeriodMillis,
     vsk_TaskSchedulerOnStart const onStart,
