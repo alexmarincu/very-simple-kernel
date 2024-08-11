@@ -4,7 +4,7 @@
 /*----------------------------------------------------------------------------*/
 typedef struct vsk_Event vsk_Event;
 /*----------------------------------------------------------------------------*/
-#include "../../c_tool_box/c_tool_box/src/ctb_LinkedList.h"
+#include "../../c-tool-box/c_tool_box/src/ctb_LinkedList.h"
 #include "vsk_EventSubscription.h"
 /*----------------------------------------------------------------------------*/
 struct vsk_Event {

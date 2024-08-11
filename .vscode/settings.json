@@ -1,17 +1,17 @@
 {
     "ceedlingExplorer.debugConfiguration": "Test Debug",
-    "ceedlingExplorer.projectPath": "./very_simple_kernel",
+    "ceedlingExplorer.projectPath": "./very-simple-kernel",
     // c intellisense {
     "C_Cpp.default.compilerPath": "/usr/bin/arm-none-eabi-gcc",
     "C_Cpp.default.systemIncludePath": [
         // "/lib/gcc/arm-none-eabi/14.1.0/include"
     ],
     "C_Cpp.default.browse.path": [
-        "${workspaceFolder}/very_simple_kernel/src/**"
+        "${workspaceFolder}/very-simple-kernel/src/**"
     ],
     "C_Cpp.default.includePath": [
-        "${workspaceFolder}/very_simple_kernel/src",
-        "${workspaceFolder}/c_tool_box/c_tool_box/src",
+        "${workspaceFolder}/very-simple-kernel/src",
+        "${workspaceFolder}/c-tool-box/c_tool_box/src",
     ],
     // "C_Cpp.default.intelliSenseMode": "linux-gcc-arm",
     "C_Cpp.default.cStandard": "c11",
@@ -77,6 +77,6 @@
     "mypy-type-checker.reportingScope": "workspace",
     // } python
     "git.ignoredRepositories": [
-        "c_tool_box"
+        "c-tool-box"
     ]
 }

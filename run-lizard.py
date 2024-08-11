@@ -3,7 +3,7 @@ import subprocess
 import webbrowser
 import os
 
-SOURCE_DIR_PATH: str = 'very_simple_kernel/src'
+SOURCE_DIR_PATH: str = 'very-simple-kernel/src'
 LIZARD_ARTIFACTS_DIR_PATH: str = 'lizard-artifacts'
 LIZARD_HTML_REPORT_FILE_PATH: str = os.path.join(
     LIZARD_ARTIFACTS_DIR_PATH,

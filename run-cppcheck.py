@@ -11,7 +11,7 @@ parser.add_argument(
     help='Enable exhaustive check level in cppcheck'
 )
 args = parser.parse_args()
-SOURCE_DIR_PATH: str = 'very_simple_kernel/src'
+SOURCE_DIR_PATH: str = 'very-simple-kernel/src'
 CPPCHECK_ARTIFACTS_DIR_PATH: str = 'cppcheck-artifacts'
 CPPCHECK_XML_REPORT_FILE_PATH: str = os.path.join(
     CPPCHECK_ARTIFACTS_DIR_PATH,

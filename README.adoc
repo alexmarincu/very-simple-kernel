@@ -1,5 +1,5 @@
 = Very simple kernel (vsk)
-:imagesdir: readme_assets
+:imagesdir: readme-assets
 :tip-caption: :bulb:
 
 VSK is a non-preemptive, run to completion, event driven kernel.
