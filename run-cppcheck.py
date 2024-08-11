@@ -2,7 +2,15 @@ import shutil
 import subprocess
 import webbrowser
 import os
+import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    '--exhaustive',
+    action='store_true',
+    help='Enable exhaustive check level in cppcheck'
+)
+args = parser.parse_args()
 SOURCE_DIR_PATH: str = 'very_simple_kernel/src'
 CPPCHECK_ARTIFACTS_DIR_PATH: str = 'cppcheck-artifacts'
 CPPCHECK_XML_REPORT_FILE_PATH: str = os.path.join(
@@ -47,6 +55,8 @@ CPPCHECK_COMMAND: list[str] = [
     # '--suppress=*:path/*.h',
     # } Ignore 3rd party
 ]
+if args.exhaustive:
+    CPPCHECK_COMMAND.append('--check-level=exhaustive')
 subprocess.run(CPPCHECK_COMMAND)
 CPPCHECK_HTMLREPORT_COMMAND: list[str] = [
     'python',
