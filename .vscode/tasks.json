@@ -54,6 +54,19 @@
             }
         },
         {
+            "label": "Lint exhaustive",
+            "type": "shell",
+            "command": "${command:python.interpreterPath} ./run-cppcheck.py --exhaustive",
+            "group": "build",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "panel": "new"
+            }
+        },
+        {
             "label": "CCM",
             "type": "shell",
             "command": "${command:python.interpreterPath} ./run-lizard.py",
