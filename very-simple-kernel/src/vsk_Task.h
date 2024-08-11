@@ -7,7 +7,7 @@ typedef struct vsk_Task vsk_Task;
 #include <stdbool.h>
 #include <stdint.h>
 /*----------------------------------------------------------------------------*/
-#include "../../c_tool_box/c_tool_box/src/ctb_Node.h"
+#include "../../c-tool-box/c_tool_box/src/ctb_Node.h"
 /*----------------------------------------------------------------------------*/
 typedef void (*vsk_TaskOperation)(void * const obj);
 typedef enum {

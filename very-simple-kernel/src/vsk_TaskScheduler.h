@@ -4,7 +4,7 @@
 /*----------------------------------------------------------------------------*/
 typedef struct vsk_TaskScheduler vsk_TaskScheduler;
 /*----------------------------------------------------------------------------*/
-#include "../../c_tool_box/c_tool_box/src/ctb_LinkedList.h"
+#include "../../c-tool-box/c_tool_box/src/ctb_LinkedList.h"
 #include "vsk_Task.h"
 /*----------------------------------------------------------------------------*/
 typedef void (*vsk_TaskSchedulerOnStart)(void);

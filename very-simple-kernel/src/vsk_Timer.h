@@ -7,7 +7,7 @@ typedef struct vsk_Timer vsk_Timer;
 #include <stdbool.h>
 #include <stdint.h>
 /*----------------------------------------------------------------------------*/
-#include "../../c_tool_box/c_tool_box/src/ctb_Node.h"
+#include "../../c-tool-box/c_tool_box/src/ctb_Node.h"
 /*----------------------------------------------------------------------------*/
 typedef void (*vsk_TimerCallback)(void * const obj);
 /*----------------------------------------------------------------------------*/

@@ -4,7 +4,7 @@
 /*----------------------------------------------------------------------------*/
 typedef struct vsk_TimerSupervisor vsk_TimerSupervisor;
 /*----------------------------------------------------------------------------*/
-#include "../../c_tool_box/c_tool_box/src/ctb_LinkedList.h"
+#include "../../c-tool-box/c_tool_box/src/ctb_LinkedList.h"
 #include "vsk_Timer.h"
 /*----------------------------------------------------------------------------*/
 struct vsk_TimerSupervisor {

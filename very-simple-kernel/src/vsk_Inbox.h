@@ -4,7 +4,7 @@
 /*----------------------------------------------------------------------------*/
 typedef struct vsk_Inbox vsk_Inbox;
 /*----------------------------------------------------------------------------*/
-#include "../../c_tool_box/c_tool_box/src/ctb_LinkedQueue.h"
+#include "../../c-tool-box/c_tool_box/src/ctb_LinkedQueue.h"
 #include "vsk_Message.h"
 #include "vsk_Task.h"
 /*----------------------------------------------------------------------------*/

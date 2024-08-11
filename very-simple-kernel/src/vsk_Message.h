@@ -4,7 +4,7 @@
 /*----------------------------------------------------------------------------*/
 typedef struct vsk_Message vsk_Message;
 /*----------------------------------------------------------------------------*/
-#include "../../c_tool_box/c_tool_box/src/ctb_Node.h"
+#include "../../c-tool-box/c_tool_box/src/ctb_Node.h"
 typedef void (*vsk_MessageHandler)(void * const obj);
 /*----------------------------------------------------------------------------*/
 struct vsk_Message {

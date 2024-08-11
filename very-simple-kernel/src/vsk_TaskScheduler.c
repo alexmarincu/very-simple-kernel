@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
 #include "vsk_TaskScheduler.h"
 /*----------------------------------------------------------------------------*/
-#include "../../c_tool_box/c_tool_box/src/ctb.h"
+#include "../../c-tool-box/c_tool_box/src/ctb.h"
 #include "vsk_OnStartEvent.h"
 /*----------------------------------------------------------------------------*/
 vsk_TaskScheduler * vsk_TaskScheduler_(void) {
