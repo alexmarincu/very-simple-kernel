@@ -1,19 +1,21 @@
 {
     "ceedlingExplorer.debugConfiguration": "Test Debug",
-    "ceedlingExplorer.projectPath": "./very-simple-kernel",
+    "ceedlingExplorer.projectPath": ".",
     // c intellisense {
-    "C_Cpp.default.compilerPath": "/usr/bin/arm-none-eabi-gcc",
-    "C_Cpp.default.systemIncludePath": [
-        // "/lib/gcc/arm-none-eabi/14.1.0/include"
-    ],
+    "C_Cpp.default.compilerPath": "gcc",
     "C_Cpp.default.browse.path": [
-        "${workspaceFolder}/very-simple-kernel/src/**"
+        "${workspaceFolder}/src/**",
+        "${workspaceFolder}/test/**"
     ],
     "C_Cpp.default.includePath": [
-        "${workspaceFolder}/very-simple-kernel/src",
-        "${workspaceFolder}/c-tool-box/c_tool_box/src",
+        "${workspaceFolder}/src",
+        "${workspaceFolder}/c-tool-box/src",
+        "${workspaceFolder}/build/vendor/unity/src",
+        "${workspaceFolder}/build/test/mocks/**"
     ],
-    // "C_Cpp.default.intelliSenseMode": "linux-gcc-arm",
+    "C_Cpp.default.defines": [
+        "TEST"
+    ],
     "C_Cpp.default.cStandard": "c11",
     "C_Cpp.default.browse.limitSymbolsToIncludedHeaders": true,
     "C_Cpp.default.compilerArgs": [],
@@ -45,7 +47,7 @@
         "--suppress=missingIncludeSystem",
         "--inline-suppr",
         // Defines {
-        // "-Ddefine",
+        "-DTEST_SOURCE_FILE",
         // } Defines
         // Includes {
         // "-Ipath/",
@@ -76,7 +78,4 @@
     ],
     "mypy-type-checker.reportingScope": "workspace",
     // } python
-    "git.ignoredRepositories": [
-        "c-tool-box"
-    ]
 }

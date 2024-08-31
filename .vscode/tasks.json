@@ -8,7 +8,7 @@
             "group": "build",
             "problemMatcher": [],
             "options": {
-                "cwd": "${workspaceFolder}/very-simple-kernel"
+                "cwd": "${workspaceFolder}"
             },
             "presentation": {
                 "panel": "new"
@@ -21,58 +21,82 @@
             "group": "build",
             "problemMatcher": [],
             "options": {
-                "cwd": "${workspaceFolder}/very-simple-kernel"
+                "cwd": "${workspaceFolder}"
             },
             "presentation": {
                 "panel": "new"
             }
         },
         {
-            "label": "Test",
+            "label": "Run tests",
             "type": "shell",
-            "command": "ceedling test:all",
+            "command": "ceedling gcov:all && $BROWSER build/artifacts/gcov/gcovr/GcovCoverageResults.html",
             "group": "test",
             "problemMatcher": [],
             "options": {
-                "cwd": "${workspaceFolder}/very-simple-kernel"
+                "cwd": "${workspaceFolder}"
             },
             "presentation": {
                 "panel": "new"
             }
         },
         {
-            "label": "Lint",
+            "label": "Run cppcheck (Lint)",
             "type": "shell",
-            "command": "${command:python.interpreterPath} ./run-cppcheck.py",
+            "command": "python ./run-cppcheck.py",
             "group": "build",
             "problemMatcher": [],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}/scripts"
             },
             "presentation": {
                 "panel": "new"
             }
         },
         {
-            "label": "Lint exhaustive",
+            "label": "Run cppcheck exhaustive (Lint)",
             "type": "shell",
-            "command": "${command:python.interpreterPath} ./run-cppcheck.py --exhaustive",
+            "command": "python ./run-cppcheck.py --exhaustive",
             "group": "build",
             "problemMatcher": [],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}/scripts"
             },
             "presentation": {
                 "panel": "new"
             }
         },
         {
-            "label": "CCM",
+            "label": "Run lizard (CCM)",
             "type": "shell",
-            "command": "${command:python.interpreterPath} ./run-lizard.py",
+            "command": "python ./run-lizard.py",
             "group": "build",
             "problemMatcher": [],
             "options": {
+                "cwd": "${workspaceFolder}/scripts"
+            },
+            "presentation": {
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Generate changelog",
+            "type": "shell",
+            "command": "python ./generate-changelog.py ${input:previousVersion} ${input:newVersion}",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}/scripts"
+            },
+            "presentation": {
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Generate test file",
+            "type": "shell",
+            "command": "ceedling 'module:create[${fileBasenameNoExtension}]'",
+            "problemMatcher": [],
+            "options": {
                 "cwd": "${workspaceFolder}"
             },
             "presentation": {
@@ -80,12 +104,12 @@
             }
         },
         {
-            "label": "Changelog",
+            "label": "Generate docs",
             "type": "shell",
-            "command": "${command:python.interpreterPath} ./changelog.py ${input:previousVersion} ${input:newVersion}",
+            "command": "rm -rf html && doxygen && $BROWSER html/index.html",
             "problemMatcher": [],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}/docs"
             },
             "presentation": {
                 "panel": "new"

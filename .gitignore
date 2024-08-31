@@ -1,20 +1,10 @@
 # Build files
 build/
-# clangd
-.cache/
-compile_commands.json
+
 # Doc diagram cache
 **/.asciidoctor/
+
 # Python cache
 __pycache__/
 *.py[cod]
 *$py.class
-
-# cppcheck
-cppcheck-artifacts/*
-
-# lizard
-lizard-artifacts/*
-
-# changelog
-changelog.txt
