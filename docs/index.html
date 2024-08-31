@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=html/index.html" />
+    <title>Redirecting...</title>
+    <link
+      rel="canonical"
+      href="https://verysimplekernel.swdevstudio.com/html/index.html"
+    />
+    <style>
+      /* Set dark background and text color */
+      body {
+        background-color: #121212;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      /* Center the spinner */
+      .spinner-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      /* Spinner styling with light color */
+      .spinner {
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border-left-color: #ffffff;
+        animation: spin 1s ease infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      /* Center the text and make it visible */
+      #redirect-link {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+      }
+      #redirect-link a {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+    <div id="redirect-link">
+      If you are not redirected automatically,
+      <a href="html/index.html">click here</a>.
+    </div>
+    <script>
+      // Display the link after 2 seconds
+      setTimeout(function () {
+        document.querySelector(".spinner-container").style.display = "none";
+        document.getElementById("redirect-link").style.display = "block";
+      }, 2000);
+    </script>
+  </body>
+</html>

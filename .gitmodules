@@ -1,3 +1,6 @@
 [submodule "c_tool_box"]
 	path = c-tool-box
 	url = https://github.com/alexmarincu/c-tool-box.git
+[submodule "docs/doxygen-awesome-css"]
+	path = docs/doxygen-awesome-css
+	url = https://github.com/jothepro/doxygen-awesome-css.git

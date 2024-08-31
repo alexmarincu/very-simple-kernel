@@ -1,0 +1,87 @@
+---
+:project:
+    :which_ceedling: gem
+    :ceedling_version: "?"
+    :use_mocks: TRUE
+    :use_test_preprocessor: :all
+    :use_backtrace: :simple
+    :use_decorators: :auto
+    :build_root: build
+    :test_file_prefix: test_
+    :default_tasks:
+        - test:all
+    :test_threads: :auto
+    :compile_threads: :auto
+    :release_build: TRUE
+:release_build:
+    :output: vsk.a
+:plugins:
+    :enabled:
+        - gcov
+        - module_generator
+        - report_tests_pretty_stdout
+        - report_tests_log_factory
+:report_tests_log_factory:
+    :reports:
+        - html
+:paths:
+    :test:
+        - +:test/**
+        - -:test/support
+    :source:
+        - src/**
+    :include:
+        - src/**
+        - c-tool-box/src/**
+    :support:
+        - test/support
+    :libraries: []
+:defines:
+    :test:
+        - TEST
+    :release: []
+:flags:
+    :release:
+        :compile:
+            - -Wall
+            - -Wextra
+            - -Werror
+            - -Wpedantic
+            - -Wfloat-equal
+            - -Wshadow
+            - -Wconversion
+    :test:
+        :compile:
+            - -Wall
+            - -Wextra
+            - -Werror
+            - -Wpedantic
+            - -Wfloat-equal
+            - -Wshadow
+            - -Wconversion
+:cmock:
+    :plugins:
+        - :ignore
+        - :callback
+    :verbosity: 2
+    :when_no_prototypes: :warn
+    :mock_prefix: "mock_"
+    :memcmp_if_unknown: true
+    :when_ptr: :compare_data
+    :weak: ""
+    :enforce_strict_ordering: true
+    :fail_on_unexpected_calls: false
+    :callback_include_count: true
+    :callback_after_arg_check: false
+    :exclude_setjmp_h: false
+:unity:
+    :defines:
+        - UNITY_EXCLUDE_FLOAT
+:gcov:
+    :utilities:
+        - gcovr
+    :reports:
+        - HtmlDetailed
+    :gcovr:
+        :html_medium_threshold: 75
+        :html_high_threshold: 90
