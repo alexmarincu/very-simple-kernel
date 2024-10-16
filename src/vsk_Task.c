@@ -1,30 +1,80 @@
-/*----------------------------------------------------------------------------*/
 #include "vsk_Task.h"
-/*----------------------------------------------------------------------------*/
-#include "vsk_TaskScheduler.h"
+#include "ctb.h"
+#include "vsk_OnStartEvent.h"
 #include "vsk_Time.h"
-/*----------------------------------------------------------------------------*/
-vsk_Task * vsk_Task_init(
-    vsk_Task * const self, vsk_TaskOperation const operation, void * const obj
+
+vsk_Task_Class_t vsk_Task_Class;
+
+static void registerTask(
+    vsk_Task_Class_t * const cls, vsk_Task_t * const task
+);
+static void run(vsk_Task_t * const self);
+
+vsk_Task_Class_t * vsk_Task_Class_init(
+    vsk_Task_Class_t * const       cls,
+    vsk_Task_Class_OnStart_t const onStart,
+    vsk_Task_Class_OnIdle_t const  onIdle
 ) {
+    ctb_DList_init(&cls->tasks);
+    cls->onStart = onStart;
+    cls->onIdle  = onIdle;
+    return cls;
+}
+
+static bool isTaskReady(vsk_Task_t * const task) {
+    return vsk_Task_isReady(task);
+}
+
+void vsk_Task_Class_startScheduler(vsk_Task_Class_t * const cls) {
+    cls->onStart();
+    vsk_Event_raise((vsk_Event_t *)&vsk_OnStartEvent);
+    while (1) {
+        vsk_Task_t * readyTask =
+            ctb_containerOf(
+                ctb_DList_find(
+                    &cls->tasks,
+                    (ctb_DListIterator_FindPredicate_t)isTaskReady
+                ),
+                vsk_Task_t,
+                node
+            );
+        if (readyTask) {
+            run(readyTask);
+        } else {
+            cls->onIdle();
+        }
+    }
+}
+
+static void registerTask(
+    vsk_Task_Class_t * const cls, vsk_Task_t * const task
+) {
+    ctb_DList_addLast(&cls->tasks, vsk_Task_toNode(task));
+}
+
+vsk_Task_t * vsk_Task_init(
+    vsk_Task_t * const self, vsk_Task_Operation_t const operation, void * const obj
+) {
+    self->cls = &vsk_Task_Class;
+    ctb_DNode_init(&self->node);
     self->operation           = operation;
     self->obj                 = obj;
-    self->state               = vsk_TaskState_suspended;
+    self->state               = vsk_Task_State_suspended;
     self->lastStartTimeMillis = 0;
     self->maxRunTimeMillis    = 0;
     self->minPeriodMillis     = UINT32_MAX;
     self->cpuLoad             = 0;
-    vsk_TaskScheduler_register(vsk_TaskScheduler_(), self);
+    registerTask(&vsk_Task_Class, self);
     return self;
 }
-/*----------------------------------------------------------------------------*/
-bool vsk_Task_isReady(vsk_Task * const self) {
+
+bool vsk_Task_isReady(vsk_Task_t * const self) {
     (void)self;
-    return self->state == vsk_TaskState_ready;
+    return self->state == vsk_Task_State_ready;
 }
-/*----------------------------------------------------------------------------*/
-static void vsk_Task_profilingBefore(vsk_Task * const self) {
-    uint32_t const startTimeMillis = vsk_Time_getMillisCount(vsk_Time_());
+
+static void profilingBefore(vsk_Task_t * const self) {
+    uint32_t const startTimeMillis = vsk_Time_getMillisCount(&vsk_Time);
     uint32_t const periodMillis    = startTimeMillis - self->lastStartTimeMillis;
     if (periodMillis < self->minPeriodMillis) {
         self->minPeriodMillis = periodMillis;
@@ -32,59 +82,59 @@ static void vsk_Task_profilingBefore(vsk_Task * const self) {
     self->cpuLoad             = (self->maxRunTimeMillis * 100) / self->minPeriodMillis;
     self->lastStartTimeMillis = startTimeMillis;
 }
-/*----------------------------------------------------------------------------*/
-static void vsk_Task_profilingAfter(vsk_Task * const self) {
+
+static void profilingAfter(vsk_Task_t * const self) {
     uint32_t const runTimeMillis =
-        vsk_Time_getMillisCount(vsk_Time_()) - self->lastStartTimeMillis;
+        vsk_Time_getMillisCount(&vsk_Time) - self->lastStartTimeMillis;
     if (runTimeMillis > self->maxRunTimeMillis) {
         self->maxRunTimeMillis = runTimeMillis;
     }
 }
-/*----------------------------------------------------------------------------*/
-void vsk_Task_run(vsk_Task * const self) {
+
+static void run(vsk_Task_t * const self) {
     switch (self->state) {
-        case vsk_TaskState_ready: {
-            self->state = vsk_TaskState_running;
-            vsk_Task_profilingBefore(self);
+        case vsk_Task_State_ready: {
+            self->state = vsk_Task_State_running;
+            profilingBefore(self);
             self->operation(self->obj);
-            vsk_Task_profilingAfter(self);
-            self->state = vsk_TaskState_suspended;
+            profilingAfter(self);
+            self->state = vsk_Task_State_suspended;
         } break;
-        case vsk_TaskState_suspended:
-        case vsk_TaskState_running:
+        case vsk_Task_State_suspended:
+        case vsk_Task_State_running:
         default: {
             // ignore
         } break;
     }
 }
-/*----------------------------------------------------------------------------*/
-void vsk_Task_activate(vsk_Task * const self) {
+
+void vsk_Task_activate(vsk_Task_t * const self) {
     switch (self->state) {
-        case vsk_TaskState_suspended: {
-            self->state = vsk_TaskState_ready;
+        case vsk_Task_State_suspended: {
+            self->state = vsk_Task_State_ready;
         } break;
-        case vsk_TaskState_ready:
-        case vsk_TaskState_running:
+        case vsk_Task_State_ready:
+        case vsk_Task_State_running:
         default: {
             // ignore
         } break;
     }
 }
-/*----------------------------------------------------------------------------*/
+
 // cppcheck-suppress unusedFunction // API function
-void vsk_Task_suspend(vsk_Task * const self) {
+void vsk_Task_suspend(vsk_Task_t * const self) {
     switch (self->state) {
-        case vsk_TaskState_running: {
-            self->state = vsk_TaskState_suspended;
+        case vsk_Task_State_running: {
+            self->state = vsk_Task_State_suspended;
         } break;
-        case vsk_TaskState_suspended:
-        case vsk_TaskState_ready:
+        case vsk_Task_State_suspended:
+        case vsk_Task_State_ready:
         default: {
             // ignore
         } break;
     }
 }
-/*----------------------------------------------------------------------------*/
-ctb_DNode_t * vsk_Task_toNode(vsk_Task * const self) {
+
+ctb_DNode_t * vsk_Task_toNode(vsk_Task_t * const self) {
     return &self->node;
 }

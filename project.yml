@@ -30,6 +30,7 @@
         - -:test/support
     :source:
         - src/**
+        - c-tool-box/src/**
     :include:
         - src/**
         - c-tool-box/src/**

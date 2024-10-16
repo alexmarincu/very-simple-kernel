@@ -1,26 +1,33 @@
-/*----------------------------------------------------------------------------*/
+/**
+ * @file
+ */
 #ifndef VSK_CRITICALSECTION_H
 #define VSK_CRITICALSECTION_H
-/*----------------------------------------------------------------------------*/
-typedef struct vsk_CriticalSection vsk_CriticalSection;
-/*----------------------------------------------------------------------------*/
+
+typedef struct vsk_CriticalSection vsk_CriticalSection_t;
+
 #include <stdint.h>
-/*----------------------------------------------------------------------------*/
-typedef void (*vsk_CriticalSectionOnEnter)(void);
-typedef void (*vsk_CriticalSectionOnExit)(void);
-/*----------------------------------------------------------------------------*/
+
+typedef void (*vsk_CriticalSection_OnEnter_t)(void);
+
+typedef void (*vsk_CriticalSection_OnExit_t)(void);
+
 struct vsk_CriticalSection {
-    vsk_CriticalSectionOnEnter onEnter;
-    vsk_CriticalSectionOnExit  onExit;
+    vsk_CriticalSection_OnEnter_t onEnter;
+    vsk_CriticalSection_OnExit_t  onExit;
     uint8_t volatile nestingLevels;
 };
-/*----------------------------------------------------------------------------*/
-vsk_CriticalSection * vsk_CriticalSection_(void);
-vsk_CriticalSection * vsk_CriticalSection_init(
-    vsk_CriticalSection * const      self,
-    vsk_CriticalSectionOnEnter const onEnter,
-    vsk_CriticalSectionOnExit const  onExit
+
+extern vsk_CriticalSection_t vsk_CriticalSection;
+
+vsk_CriticalSection_t * vsk_CriticalSection_init(
+    vsk_CriticalSection_t * const       self,
+    vsk_CriticalSection_OnEnter_t const onEnter,
+    vsk_CriticalSection_OnExit_t const  onExit
 );
-void vsk_CriticalSection_enter(vsk_CriticalSection * const self);
-void vsk_CriticalSection_exit(vsk_CriticalSection * const self);
+
+void vsk_CriticalSection_enter(vsk_CriticalSection_t * const self);
+
+void vsk_CriticalSection_exit(vsk_CriticalSection_t * const self);
+
 #endif // VSK_CRITICALSECTION_H

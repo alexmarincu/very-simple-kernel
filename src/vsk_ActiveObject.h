@@ -1,23 +1,26 @@
-/*----------------------------------------------------------------------------*/
+/**
+ * @file
+ */
 #ifndef VSK_ACTIVEOBJECT_H
 #define VSK_ACTIVEOBJECT_H
-/*----------------------------------------------------------------------------*/
-typedef struct vsk_ActiveObject vsk_ActiveObject;
-/*----------------------------------------------------------------------------*/
+
+typedef struct vsk_ActiveObject vsk_ActiveObject_t;
+
 #include "vsk_EventSubscription.h"
 #include "vsk_StateContext.h"
 #include "vsk_Task.h"
-/*----------------------------------------------------------------------------*/
+
 struct vsk_ActiveObject {
-    vsk_StateContext stateContext;
-    vsk_Task         task;
-    vsk_Inbox        inbox;
+    vsk_StateContext_t stateContext;
+    vsk_Task_t         task;
+    vsk_Inbox_t        inbox;
     struct {
-        vsk_EventSubscription onStart;
+        vsk_EventSubscription_t onStart;
     } eventSubscriptions;
 };
-/*----------------------------------------------------------------------------*/
-vsk_ActiveObject * vsk_ActiveObject_init(
-    vsk_ActiveObject * const self, vsk_State * const initialState
+
+vsk_ActiveObject_t * vsk_ActiveObject_init(
+    vsk_ActiveObject_t * const self, vsk_State_t * const initialState
 );
+
 #endif // VSK_ACTIVEOBJECT_H
