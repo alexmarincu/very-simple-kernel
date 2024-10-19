@@ -5,12 +5,16 @@
     "C_Cpp.default.compilerPath": "gcc",
     "C_Cpp.default.browse.path": [
         "${workspaceFolder}/src/**",
-        "${workspaceFolder}/test/**"
+        "${workspaceFolder}/c-tool-box/src/**",
+        "${workspaceFolder}/test/**",
+        "${workspaceFolder}/build/vendor/unity/src/**",
+        "${workspaceFolder}/build/test/mocks/**"
     ],
     "C_Cpp.default.includePath": [
-        "${workspaceFolder}/src",
-        "${workspaceFolder}/c-tool-box/src",
-        "${workspaceFolder}/build/vendor/unity/src",
+        "${workspaceFolder}/src/**",
+        "${workspaceFolder}/c-tool-box/src/**",
+        "${workspaceFolder}/test/**",
+        "${workspaceFolder}/build/vendor/unity/src/**",
         "${workspaceFolder}/build/test/mocks/**"
     ],
     "C_Cpp.default.defines": [
