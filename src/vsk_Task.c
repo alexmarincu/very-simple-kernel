@@ -21,7 +21,8 @@ vsk_Task_Class_t * vsk_Task_Class_init(
     return cls;
 }
 
-static bool isTaskReady(vsk_Task_t * const task) {
+static bool isTaskReady(ctb_DNode_t * const taskNode) {
+    vsk_Task_t * const task = ctb_containerOf(taskNode, vsk_Task_t, node);
     return vsk_Task_isReady(task);
 }
 
@@ -29,16 +30,13 @@ void vsk_Task_Class_startScheduler(vsk_Task_Class_t * const cls) {
     cls->onStart();
     vsk_Event_raise((vsk_Event_t *)&vsk_OnStartEvent);
     while (1) {
-        vsk_Task_t * readyTask =
-            ctb_containerOf(
-                ctb_DList_find(
-                    &cls->tasks,
-                    (ctb_DListIterator_FindPredicate_t)isTaskReady
-                ),
-                vsk_Task_t,
-                node
+        ctb_DNode_t * const readyTaskNode = ctb_DList_find(
+            &cls->tasks, isTaskReady
+        );
+        if (readyTaskNode) {
+            vsk_Task_t * const readyTask = ctb_containerOf(
+                readyTaskNode, vsk_Task_t, node
             );
-        if (readyTask) {
             run(readyTask);
         } else {
             cls->onIdle();

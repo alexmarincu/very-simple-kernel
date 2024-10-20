@@ -6,21 +6,21 @@
 
 // cppcheck-suppress unusedFunction // API function
 void vsk_init(
-    uint16_t const        tickPeriodMillis,
-    vsk_Interface_t const interface
+    uint16_t const                tickPeriodMillis,
+    vsk_Interface_t const * const interface
 ) {
     vsk_Time_init(&vsk_Time, tickPeriodMillis);
     vsk_Task_Class_init(
-        &vsk_Task_Class, interface.onStart, interface.onIdle
+        &vsk_Task_Class, interface->onStart, interface->onIdle
     );
     vsk_Timer_Class_init(&vsk_Timer_Class);
     vsk_Inbox_Class_init(&vsk_Inbox_Class);
     vsk_CriticalSection_init(
         &vsk_CriticalSection,
-        interface.onCriticalSectionEnter,
-        interface.onCriticalSectionExit
+        interface->onCriticalSectionEnter,
+        interface->onCriticalSectionExit
     );
-    vsk_Assert_init(&vsk_Assert, interface.onAssertFail);
+    vsk_Assert_init(&vsk_Assert, interface->onAssertFail);
     vsk_OnStartEvent_init(&vsk_OnStartEvent);
 }
 

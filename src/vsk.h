@@ -26,8 +26,8 @@ typedef struct vsk_Interface {
  * @param interface        The interface for user hooks and platform specific functions
  */
 void vsk_init(
-    uint16_t const        tickPeriodMillis,
-    vsk_Interface_t const interface
+    uint16_t const                tickPeriodMillis,
+    vsk_Interface_t const * const interface
 );
 
 /**

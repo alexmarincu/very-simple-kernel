@@ -1,4 +1,5 @@
 #include "vsk_Timer.h"
+#include "ctb.h"
 #include "vsk_Assert.h"
 #include "vsk_Time.h"
 
@@ -18,17 +19,16 @@ vsk_Timer_Class_t * vsk_Timer_Class_init(
 static void registerTimer(
     vsk_Timer_Class_t * const cls, vsk_Timer_t * const timer
 ) {
-    ctb_DList_addLast(&cls->timers, (ctb_DNode_t *)timer);
+    ctb_DList_addLast(&cls->timers, (ctb_DNode_t *)&timer->node);
 }
 
-static void onTick(vsk_Timer_t * const timer) {
+static void onTick(ctb_DNode_t * const timerNode) {
+    vsk_Timer_t * const timer = ctb_containerOf(timerNode, vsk_Timer_t, node);
     vsk_Timer_onTick(timer);
 }
 
 void vsk_Timer_Class_onTick(vsk_Timer_Class_t * const cls) {
-    ctb_DList_forEach(
-        &cls->timers, (ctb_DListIterator_ForEachOperation_t)onTick
-    );
+    ctb_DList_forEach(&cls->timers, onTick);
 }
 
 vsk_Timer_t * vsk_Timer_init(
