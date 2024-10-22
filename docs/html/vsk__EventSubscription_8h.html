@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Very Simple Kernel: vsk_TimerSupervisor Struct Reference</title>
+<title>Very Simple Kernel: vsk_EventSubscription.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,7 +80,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('structvsk__TimerSupervisor.html',''); initResizable(true); });
+$(function(){initNavTree('vsk__EventSubscription_8h.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -107,26 +107,45 @@ $(function(){initNavTree('structvsk__TimerSupervisor.html',''); initResizable(tr
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">vsk_TimerSupervisor Struct Reference</div></div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">vsk_EventSubscription.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="vsk__Inbox_8h_source.html">vsk_Inbox.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vsk__Message_8h_source.html">vsk_Message.h</a>&quot;</code><br />
+</div>
+<p><a href="vsk__EventSubscription_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Data Fields</h2></td></tr>
-<tr class="memitem:a4aecbe85611473f75e957f0059077638" id="r_a4aecbe85611473f75e957f0059077638"><td class="memItemLeft" align="right" valign="top"><a id="a4aecbe85611473f75e957f0059077638" name="a4aecbe85611473f75e957f0059077638"></a>
-ctb_DList_t&#160;</td><td class="memItemRight" valign="bottom"><b>timers</b></td></tr>
-<tr class="separator:a4aecbe85611473f75e957f0059077638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvsk__EventSubscription.html">vsk_EventSubscription</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event subscription.  <a href="structvsk__EventSubscription.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga750c5d1779cdf066e4226ffff82e19ac" id="r_ga750c5d1779cdf066e4226ffff82e19ac"><td class="memItemLeft" align="right" valign="top">
+typedef struct <a class="el" href="structvsk__EventSubscription.html">vsk_EventSubscription</a>&#160;</td><td class="memItemRight" valign="bottom"><b>vsk_EventSubscription_t</b></td></tr>
+<tr class="memdesc:ga750c5d1779cdf066e4226ffff82e19ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event subscription. <br /></td></tr>
+<tr class="separator:ga750c5d1779cdf066e4226ffff82e19ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga310155e7911a33e6024a7be5f9e2ce84" id="r_ga310155e7911a33e6024a7be5f9e2ce84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__vsk__EventSubscription.html#ga750c5d1779cdf066e4226ffff82e19ac">vsk_EventSubscription_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vsk__EventSubscription.html#ga310155e7911a33e6024a7be5f9e2ce84">vsk_EventSubscription_init</a> (<a class="el" href="group__vsk__EventSubscription.html#ga750c5d1779cdf066e4226ffff82e19ac">vsk_EventSubscription_t</a> *const self, <a class="el" href="group__vsk__Inbox.html#gaab4e169e5c77bddac2445d87bad772a4">vsk_Inbox_t</a> *const inbox, <a class="el" href="group__vsk__Message.html#gab141645cfd4038a886f43b8a61b699cf">vsk_Message_Handler_t</a> const handler, void *const obj)</td></tr>
+<tr class="memdesc:ga310155e7911a33e6024a7be5f9e2ce84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an event subscription.  <br /></td></tr>
+<tr class="separator:ga310155e7911a33e6024a7be5f9e2ce84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad0f073438b2cbbdd3738d7e1d679352d" id="r_gad0f073438b2cbbdd3738d7e1d679352d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vsk__EventSubscription.html#gad0f073438b2cbbdd3738d7e1d679352d">vsk_EventSubscription_publish</a> (<a class="el" href="group__vsk__EventSubscription.html#ga750c5d1779cdf066e4226ffff82e19ac">vsk_EventSubscription_t</a> *const self)</td></tr>
+<tr class="memdesc:gad0f073438b2cbbdd3738d7e1d679352d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publishes the event message to the associated inbox.  <br /></td></tr>
+<tr class="separator:gad0f073438b2cbbdd3738d7e1d679352d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="vsk__TimerSupervisor_8h_source.html">vsk_TimerSupervisor.h</a></li>
-</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="structvsk__TimerSupervisor.html">vsk_TimerSupervisor</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="vsk__EventSubscription_8h.html">vsk_EventSubscription.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

@@ -3,13 +3,17 @@
  */
 #ifndef VSK_H
 #define VSK_H
+/**
+ * @defgroup vsk vsk
+ * @{
+ */
 
 #include "vsk_Assert.h"
 #include "vsk_CriticalSection.h"
 #include "vsk_Task.h"
 
 /**
- * @brief Data type and structure for vsk interfaces
+ * @brief User defined functions for the vsk module
  */
 typedef struct vsk_Interface {
     vsk_Task_Class_OnStart_t      onStart;                /**< Called on task scheduler start. */
@@ -22,7 +26,7 @@ typedef struct vsk_Interface {
 /**
  * @brief Initializes the vsk module.
  *
- * @param tickPeriodMillis The period at which the system ticks
+ * @param tickPeriodMillis The period at which the system ticks in milliseconds
  * @param interface        The interface for user hooks and platform specific functions
  */
 void vsk_init(
@@ -39,8 +43,8 @@ void vsk_onTick(void);
 
 /**
  * @brief Starts the task scheduler
- *
  */
 void vsk_startScheduler(void);
 
+/** @} */
 #endif // VSK_H

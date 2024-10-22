@@ -108,22 +108,72 @@ $(function(){initNavTree('structvsk__Message.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">vsk_Message Struct Reference</div></div>
+  <div class="headertitle"><div class="title">vsk_Message Struct Reference<div class="ingroups"><a class="el" href="group__vsk.html">vsk</a> &raquo; <a class="el" href="group__vsk__Message.html">vsk_Message</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Message.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="vsk__Message_8h_source.html">vsk_Message.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:af5d5e7cbf28464b264fa3568fc0adaf5" id="r_af5d5e7cbf28464b264fa3568fc0adaf5"><td class="memItemLeft" align="right" valign="top"><a id="af5d5e7cbf28464b264fa3568fc0adaf5" name="af5d5e7cbf28464b264fa3568fc0adaf5"></a>
-ctb_DNode_t&#160;</td><td class="memItemRight" valign="bottom"><b>node</b></td></tr>
+<tr class="memitem:af5d5e7cbf28464b264fa3568fc0adaf5" id="r_af5d5e7cbf28464b264fa3568fc0adaf5"><td class="memItemLeft" align="right" valign="top">ctb_DNode_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5d5e7cbf28464b264fa3568fc0adaf5">node</a></td></tr>
 <tr class="separator:af5d5e7cbf28464b264fa3568fc0adaf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d16a05db938122f9e5d3db8bff33de2" id="r_a6d16a05db938122f9e5d3db8bff33de2"><td class="memItemLeft" align="right" valign="top"><a id="a6d16a05db938122f9e5d3db8bff33de2" name="a6d16a05db938122f9e5d3db8bff33de2"></a>
-vsk_MessageHandler&#160;</td><td class="memItemRight" valign="bottom"><b>handler</b></td></tr>
-<tr class="separator:a6d16a05db938122f9e5d3db8bff33de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e7f85ddaba3a0ac1cbad5894a4e05b1" id="r_a6e7f85ddaba3a0ac1cbad5894a4e05b1"><td class="memItemLeft" align="right" valign="top"><a id="a6e7f85ddaba3a0ac1cbad5894a4e05b1" name="a6e7f85ddaba3a0ac1cbad5894a4e05b1"></a>
-void *&#160;</td><td class="memItemRight" valign="bottom"><b>obj</b></td></tr>
+<tr class="memitem:a4ccac4cda28265056a22b371e33bab6a" id="r_a4ccac4cda28265056a22b371e33bab6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__vsk__Message.html#gab141645cfd4038a886f43b8a61b699cf">vsk_Message_Handler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ccac4cda28265056a22b371e33bab6a">handler</a></td></tr>
+<tr class="separator:a4ccac4cda28265056a22b371e33bab6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e7f85ddaba3a0ac1cbad5894a4e05b1" id="r_a6e7f85ddaba3a0ac1cbad5894a4e05b1"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e7f85ddaba3a0ac1cbad5894a4e05b1">obj</a></td></tr>
 <tr class="separator:a6e7f85ddaba3a0ac1cbad5894a4e05b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Message. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a4ccac4cda28265056a22b371e33bab6a" name="a4ccac4cda28265056a22b371e33bab6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ccac4cda28265056a22b371e33bab6a">&#9670;&#160;</a></span>handler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__vsk__Message.html#gab141645cfd4038a886f43b8a61b699cf">vsk_Message_Handler_t</a> vsk_Message::handler</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Handler to be called when message is dispatched </p>
+
+</div>
+</div>
+<a id="af5d5e7cbf28464b264fa3568fc0adaf5" name="af5d5e7cbf28464b264fa3568fc0adaf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5d5e7cbf28464b264fa3568fc0adaf5">&#9670;&#160;</a></span>node</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ctb_DNode_t vsk_Message::node</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Node to allow message to be enqueued </p>
+
+</div>
+</div>
+<a id="a6e7f85ddaba3a0ac1cbad5894a4e05b1" name="a6e7f85ddaba3a0ac1cbad5894a4e05b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e7f85ddaba3a0ac1cbad5894a4e05b1">&#9670;&#160;</a></span>obj</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* vsk_Message::obj</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Object to be passed to the handler </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="vsk__Message_8h_source.html">vsk_Message.h</a></li>
 </ul>

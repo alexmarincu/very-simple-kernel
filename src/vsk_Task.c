@@ -9,6 +9,7 @@ static void registerTask(
     vsk_Task_Class_t * const cls, vsk_Task_t * const task
 );
 static void run(vsk_Task_t * const self);
+static bool isReady(vsk_Task_t const * const self);
 
 vsk_Task_Class_t * vsk_Task_Class_init(
     vsk_Task_Class_t * const       cls,
@@ -22,8 +23,8 @@ vsk_Task_Class_t * vsk_Task_Class_init(
 }
 
 static bool isTaskReady(ctb_DNode_t * const taskNode) {
-    vsk_Task_t * const task = ctb_containerOf(taskNode, vsk_Task_t, node);
-    return vsk_Task_isReady(task);
+    vsk_Task_t const * const task = ctb_containerOf(taskNode, vsk_Task_t, node);
+    return isReady(task);
 }
 
 void vsk_Task_Class_startScheduler(vsk_Task_Class_t * const cls) {
@@ -47,7 +48,7 @@ void vsk_Task_Class_startScheduler(vsk_Task_Class_t * const cls) {
 static void registerTask(
     vsk_Task_Class_t * const cls, vsk_Task_t * const task
 ) {
-    ctb_DList_addLast(&cls->tasks, vsk_Task_toNode(task));
+    ctb_DList_addLast(&cls->tasks, &task->node);
 }
 
 vsk_Task_t * vsk_Task_init(
@@ -66,8 +67,7 @@ vsk_Task_t * vsk_Task_init(
     return self;
 }
 
-bool vsk_Task_isReady(vsk_Task_t * const self) {
-    (void)self;
+static bool isReady(vsk_Task_t const * const self) {
     return self->state == vsk_Task_State_ready;
 }
 
@@ -131,8 +131,4 @@ void vsk_Task_suspend(vsk_Task_t * const self) {
             // ignore
         } break;
     }
-}
-
-ctb_DNode_t * vsk_Task_toNode(vsk_Task_t * const self) {
-    return &self->node;
 }

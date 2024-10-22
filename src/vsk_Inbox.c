@@ -7,6 +7,7 @@ vsk_Inbox_Class_t vsk_Inbox_Class;
 static void registerInbox(
     vsk_Inbox_Class_t * const cls, vsk_Inbox_t * const inbox
 );
+static void onTick(vsk_Inbox_t * const self);
 
 vsk_Inbox_Class_t * vsk_Inbox_Class_init(
     vsk_Inbox_Class_t * const cls
@@ -21,13 +22,13 @@ static void registerInbox(
     ctb_DList_addLast(&cls->inboxes, (ctb_DNode_t *)&inbox->node);
 }
 
-static void onTick(ctb_DNode_t * const inboxNode) {
+static void onInboxTick(ctb_DNode_t * const inboxNode) {
     vsk_Inbox_t * const inbox = ctb_containerOf(inboxNode, vsk_Inbox_t, node);
-    vsk_Inbox_onTick(inbox);
+    onTick(inbox);
 }
 
 void vsk_Inbox_Class_onTick(vsk_Inbox_Class_t * const cls) {
-    ctb_DList_forEach(&cls->inboxes, onTick);
+    ctb_DList_forEach(&cls->inboxes, onInboxTick);
 }
 
 vsk_Inbox_t * vsk_Inbox_init(vsk_Inbox_t * const self, vsk_Task_t * const task) {
@@ -72,7 +73,7 @@ void vsk_Inbox_clear(vsk_Inbox_t * const self) {
     vsk_CriticalSection_exit(&vsk_CriticalSection);
 }
 
-void vsk_Inbox_onTick(vsk_Inbox_t * const self) {
+static void onTick(vsk_Inbox_t * const self) {
     if (!vsk_Inbox_isEmpty(self)) {
         vsk_Task_activate(self->task);
     }

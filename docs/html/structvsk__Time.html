@@ -108,22 +108,72 @@ $(function(){initNavTree('structvsk__Time.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">vsk_Time Struct Reference</div></div>
+  <div class="headertitle"><div class="title">vsk_Time Struct Reference<div class="ingroups"><a class="el" href="group__vsk.html">vsk</a> &raquo; <a class="el" href="group__vsk__Time.html">vsk_Time</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Time.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="vsk__Time_8h_source.html">vsk_Time.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:aee115503a671c659f001b57c28794b4e" id="r_aee115503a671c659f001b57c28794b4e"><td class="memItemLeft" align="right" valign="top"><a id="aee115503a671c659f001b57c28794b4e" name="aee115503a671c659f001b57c28794b4e"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>tickPeriodMillis</b></td></tr>
+<tr class="memitem:aee115503a671c659f001b57c28794b4e" id="r_aee115503a671c659f001b57c28794b4e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee115503a671c659f001b57c28794b4e">tickPeriodMillis</a></td></tr>
 <tr class="separator:aee115503a671c659f001b57c28794b4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96e96f66ecc6a4a5419d7aacab898004" id="r_a96e96f66ecc6a4a5419d7aacab898004"><td class="memItemLeft" align="right" valign="top"><a id="a96e96f66ecc6a4a5419d7aacab898004" name="a96e96f66ecc6a4a5419d7aacab898004"></a>
-uint32_t volatile&#160;</td><td class="memItemRight" valign="bottom"><b>millisCount</b></td></tr>
+<tr class="memitem:a96e96f66ecc6a4a5419d7aacab898004" id="r_a96e96f66ecc6a4a5419d7aacab898004"><td class="memItemLeft" align="right" valign="top">uint32_t volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96e96f66ecc6a4a5419d7aacab898004">millisCount</a></td></tr>
 <tr class="separator:a96e96f66ecc6a4a5419d7aacab898004"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a235fd45ed9223f0e00a5500bf5161744" id="r_a235fd45ed9223f0e00a5500bf5161744"><td class="memItemLeft" align="right" valign="top"><a id="a235fd45ed9223f0e00a5500bf5161744" name="a235fd45ed9223f0e00a5500bf5161744"></a>
-uint32_t volatile&#160;</td><td class="memItemRight" valign="bottom"><b>opTimeSeconds</b></td></tr>
+<tr class="memitem:a235fd45ed9223f0e00a5500bf5161744" id="r_a235fd45ed9223f0e00a5500bf5161744"><td class="memItemLeft" align="right" valign="top">uint32_t volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a235fd45ed9223f0e00a5500bf5161744">opTimeSeconds</a></td></tr>
 <tr class="separator:a235fd45ed9223f0e00a5500bf5161744"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Time. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a96e96f66ecc6a4a5419d7aacab898004" name="a96e96f66ecc6a4a5419d7aacab898004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96e96f66ecc6a4a5419d7aacab898004">&#9670;&#160;</a></span>millisCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t volatile vsk_Time::millisCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The number of milliseconds since the system started </p>
+
+</div>
+</div>
+<a id="a235fd45ed9223f0e00a5500bf5161744" name="a235fd45ed9223f0e00a5500bf5161744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a235fd45ed9223f0e00a5500bf5161744">&#9670;&#160;</a></span>opTimeSeconds</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t volatile vsk_Time::opTimeSeconds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The number of seconds since the system started </p>
+
+</div>
+</div>
+<a id="aee115503a671c659f001b57c28794b4e" name="aee115503a671c659f001b57c28794b4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee115503a671c659f001b57c28794b4e">&#9670;&#160;</a></span>tickPeriodMillis</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t vsk_Time::tickPeriodMillis</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The period at which the system ticks </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="vsk__Time_8h_source.html">vsk_Time.h</a></li>
 </ul>

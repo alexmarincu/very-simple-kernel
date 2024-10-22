@@ -108,22 +108,72 @@ $(function(){initNavTree('structvsk__CriticalSection.html',''); initResizable(tr
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">vsk_CriticalSection Struct Reference</div></div>
+  <div class="headertitle"><div class="title">vsk_CriticalSection Struct Reference<div class="ingroups"><a class="el" href="group__vsk.html">vsk</a> &raquo; <a class="el" href="group__vsk__CriticalSection.html">vsk_CriticalSection</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Critical section.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="vsk__CriticalSection_8h_source.html">vsk_CriticalSection.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:aacf5a0f8dc48f3e6fc9953f700ff8f08" id="r_aacf5a0f8dc48f3e6fc9953f700ff8f08"><td class="memItemLeft" align="right" valign="top"><a id="aacf5a0f8dc48f3e6fc9953f700ff8f08" name="aacf5a0f8dc48f3e6fc9953f700ff8f08"></a>
-vsk_CriticalSectionOnEnter&#160;</td><td class="memItemRight" valign="bottom"><b>onEnter</b></td></tr>
-<tr class="separator:aacf5a0f8dc48f3e6fc9953f700ff8f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b25be8af323c19676388cdd3cc395a8" id="r_a8b25be8af323c19676388cdd3cc395a8"><td class="memItemLeft" align="right" valign="top"><a id="a8b25be8af323c19676388cdd3cc395a8" name="a8b25be8af323c19676388cdd3cc395a8"></a>
-vsk_CriticalSectionOnExit&#160;</td><td class="memItemRight" valign="bottom"><b>onExit</b></td></tr>
-<tr class="separator:a8b25be8af323c19676388cdd3cc395a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec2e647effa3ab618c75ca0dd89428e8" id="r_aec2e647effa3ab618c75ca0dd89428e8"><td class="memItemLeft" align="right" valign="top"><a id="aec2e647effa3ab618c75ca0dd89428e8" name="aec2e647effa3ab618c75ca0dd89428e8"></a>
-uint8_t volatile&#160;</td><td class="memItemRight" valign="bottom"><b>nestingLevels</b></td></tr>
+<tr class="memitem:a90205f632a6b69bad3f5d3ec6fe641b6" id="r_a90205f632a6b69bad3f5d3ec6fe641b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__vsk__CriticalSection.html#ga63a3c8091ec92922dff12c2284ddda6d">vsk_CriticalSection_OnEnter_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90205f632a6b69bad3f5d3ec6fe641b6">onEnter</a></td></tr>
+<tr class="separator:a90205f632a6b69bad3f5d3ec6fe641b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64a2b300bf206781a3eb64fd53fa373b" id="r_a64a2b300bf206781a3eb64fd53fa373b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__vsk__CriticalSection.html#ga6f196403cdb70cc55766755885ddd087">vsk_CriticalSection_OnExit_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64a2b300bf206781a3eb64fd53fa373b">onExit</a></td></tr>
+<tr class="separator:a64a2b300bf206781a3eb64fd53fa373b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec2e647effa3ab618c75ca0dd89428e8" id="r_aec2e647effa3ab618c75ca0dd89428e8"><td class="memItemLeft" align="right" valign="top">uint8_t volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec2e647effa3ab618c75ca0dd89428e8">nestingLevels</a></td></tr>
 <tr class="separator:aec2e647effa3ab618c75ca0dd89428e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Critical section. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="aec2e647effa3ab618c75ca0dd89428e8" name="aec2e647effa3ab618c75ca0dd89428e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2e647effa3ab618c75ca0dd89428e8">&#9670;&#160;</a></span>nestingLevels</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t volatile vsk_CriticalSection::nestingLevels</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The nesting level of the critical section </p>
+
+</div>
+</div>
+<a id="a90205f632a6b69bad3f5d3ec6fe641b6" name="a90205f632a6b69bad3f5d3ec6fe641b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90205f632a6b69bad3f5d3ec6fe641b6">&#9670;&#160;</a></span>onEnter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__vsk__CriticalSection.html#ga63a3c8091ec92922dff12c2284ddda6d">vsk_CriticalSection_OnEnter_t</a> vsk_CriticalSection::onEnter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called on entering a critical section </p>
+
+</div>
+</div>
+<a id="a64a2b300bf206781a3eb64fd53fa373b" name="a64a2b300bf206781a3eb64fd53fa373b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64a2b300bf206781a3eb64fd53fa373b">&#9670;&#160;</a></span>onExit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__vsk__CriticalSection.html#ga6f196403cdb70cc55766755885ddd087">vsk_CriticalSection_OnExit_t</a> vsk_CriticalSection::onExit</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Called on exiting a critical section </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="vsk__CriticalSection_8h_source.html">vsk_CriticalSection.h</a></li>
 </ul>

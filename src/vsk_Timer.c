@@ -8,6 +8,7 @@ vsk_Timer_Class_t vsk_Timer_Class;
 static void registerTimer(
     vsk_Timer_Class_t * const cls, vsk_Timer_t * const timer
 );
+static void onTick(vsk_Timer_t * const self);
 
 vsk_Timer_Class_t * vsk_Timer_Class_init(
     vsk_Timer_Class_t * const cls
@@ -22,13 +23,13 @@ static void registerTimer(
     ctb_DList_addLast(&cls->timers, (ctb_DNode_t *)&timer->node);
 }
 
-static void onTick(ctb_DNode_t * const timerNode) {
+static void onTimerTick(ctb_DNode_t * const timerNode) {
     vsk_Timer_t * const timer = ctb_containerOf(timerNode, vsk_Timer_t, node);
-    vsk_Timer_onTick(timer);
+    onTick(timer);
 }
 
 void vsk_Timer_Class_onTick(vsk_Timer_Class_t * const cls) {
-    ctb_DList_forEach(&cls->timers, onTick);
+    ctb_DList_forEach(&cls->timers, onTimerTick);
 }
 
 vsk_Timer_t * vsk_Timer_init(
@@ -71,7 +72,7 @@ bool vsk_Timer_isRunning(vsk_Timer_t * const self) {
     return self->isRunning;
 }
 
-void vsk_Timer_onTick(vsk_Timer_t * const self) {
+static void onTick(vsk_Timer_t * const self) {
     if (self->isRunning) {
         uint16_t const tickPeriodMillis =
             vsk_Time_getTickPeriodMillis(&vsk_Time);

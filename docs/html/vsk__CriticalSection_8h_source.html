@@ -109,41 +109,96 @@ $(function(){initNavTree('vsk__CriticalSection_8h_source.html',''); initResizabl
   <div class="headertitle"><div class="title">vsk_CriticalSection.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef VSK_CRITICALSECTION_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define VSK_CRITICALSECTION_H</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection</a> <a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection</a>;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">typedef</span> void (*vsk_CriticalSectionOnEnter)(void);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">typedef</span> void (*vsk_CriticalSectionOnExit)(void);</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structvsk__CriticalSection.html">   12</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection</a> {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    vsk_CriticalSectionOnEnter onEnter;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    vsk_CriticalSectionOnExit  onExit;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    uint8_t <span class="keyword">volatile</span> nestingLevels;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
+<a href="vsk__CriticalSection_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef VSK_CRITICALSECTION_H</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define VSK_CRITICALSECTION_H</span><span class="comment"></span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * @ingroup vsk</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @defgroup vsk_CriticalSection vsk_CriticalSection</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @{</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"></span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * @brief Critical section</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="group__vsk__CriticalSection.html#ga305665da8a6ab16187096628fed48ed6">   15</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection</a> <a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection_t</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * @brief On enter callback</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="group__vsk__CriticalSection.html#ga63a3c8091ec92922dff12c2284ddda6d">   22</a></span><span class="keyword">typedef</span> void (*<a class="code hl_typedef" href="group__vsk__CriticalSection.html#ga63a3c8091ec92922dff12c2284ddda6d">vsk_CriticalSection_OnEnter_t</a>)(void);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"></span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @brief On exit callback</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="group__vsk__CriticalSection.html#ga6f196403cdb70cc55766755885ddd087">   27</a></span><span class="keyword">typedef</span> void (*<a class="code hl_typedef" href="group__vsk__CriticalSection.html#ga6f196403cdb70cc55766755885ddd087">vsk_CriticalSection_OnExit_t</a>)(void);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"></span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * @brief Critical section</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structvsk__CriticalSection.html">   32</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection</a> {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structvsk__CriticalSection.html#a90205f632a6b69bad3f5d3ec6fe641b6">   33</a></span>    <a class="code hl_typedef" href="group__vsk__CriticalSection.html#ga63a3c8091ec92922dff12c2284ddda6d">vsk_CriticalSection_OnEnter_t</a> <a class="code hl_variable" href="structvsk__CriticalSection.html#a90205f632a6b69bad3f5d3ec6fe641b6">onEnter</a>; <span class="comment">/**&lt; Called on entering a critical section */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structvsk__CriticalSection.html#a64a2b300bf206781a3eb64fd53fa373b">   34</a></span>    <a class="code hl_typedef" href="group__vsk__CriticalSection.html#ga6f196403cdb70cc55766755885ddd087">vsk_CriticalSection_OnExit_t</a>  <a class="code hl_variable" href="structvsk__CriticalSection.html#a64a2b300bf206781a3eb64fd53fa373b">onExit</a>;  <span class="comment">/**&lt; Called on exiting a critical section */</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structvsk__CriticalSection.html#aec2e647effa3ab618c75ca0dd89428e8">   35</a></span>    uint8_t <span class="keyword">volatile</span> <a class="code hl_variable" href="structvsk__CriticalSection.html#aec2e647effa3ab618c75ca0dd89428e8">nestingLevels</a>;        <span class="comment">/**&lt; The nesting level of the critical section */</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
 </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection</a> * vsk_CriticalSection_(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection</a> * vsk_CriticalSection_init(</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection</a> * <span class="keyword">const</span>      self,</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    vsk_CriticalSectionOnEnter <span class="keyword">const</span> onEnter,</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    vsk_CriticalSectionOnExit <span class="keyword">const</span>  onExit</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> vsk_CriticalSection_enter(<a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection</a> * <span class="keyword">const</span> self);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> vsk_CriticalSection_exit(<a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection</a> * <span class="keyword">const</span> self);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif </span><span class="comment">// VSK_CRITICALSECTION_H</span></div>
-<div class="ttc" id="astructvsk__CriticalSection_html"><div class="ttname"><a href="structvsk__CriticalSection.html">vsk_CriticalSection</a></div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.h:12</div></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"></span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * @brief Critical section instance</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">extern</span> <a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection_t</a> <a class="code hl_variable" href="group__vsk__CriticalSection.html#ga49ad78cf86c98ffa985f8673ebcf57f3">vsk_CriticalSection</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"></span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * @brief Initializes the critical section.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * @param self Critical section reference</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * @param onEnter On enter callback</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * @param onExit On exit callback</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * @return Initialized critical section</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection_t</a> * <a class="code hl_function" href="group__vsk__CriticalSection.html#gab9a89f794a129a10851eaf2c45ec2bb3">vsk_CriticalSection_init</a>(</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection_t</a> * <span class="keyword">const</span>       self,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_typedef" href="group__vsk__CriticalSection.html#ga63a3c8091ec92922dff12c2284ddda6d">vsk_CriticalSection_OnEnter_t</a> <span class="keyword">const</span> onEnter,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_typedef" href="group__vsk__CriticalSection.html#ga6f196403cdb70cc55766755885ddd087">vsk_CriticalSection_OnExit_t</a> <span class="keyword">const</span>  onExit</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"></span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * @brief Enters a critical section</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * @param self Critical section reference</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__vsk__CriticalSection.html#gac2a635d254fa29a1a4c21b96e791c163">vsk_CriticalSection_enter</a>(<a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection_t</a> * <span class="keyword">const</span> self);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"></span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> * @brief Exits a critical section</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> * @param self Critical section reference</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__vsk__CriticalSection.html#gaf137dbd1d06386270ff0baaac2f05e4b">vsk_CriticalSection_exit</a>(<a class="code hl_struct" href="structvsk__CriticalSection.html">vsk_CriticalSection_t</a> * <span class="keyword">const</span> self);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"></span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">/** @} */</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#endif </span><span class="comment">// VSK_CRITICALSECTION_H</span></div>
+<div class="ttc" id="agroup__vsk__CriticalSection_html_ga49ad78cf86c98ffa985f8673ebcf57f3"><div class="ttname"><a href="group__vsk__CriticalSection.html#ga49ad78cf86c98ffa985f8673ebcf57f3">vsk_CriticalSection</a></div><div class="ttdeci">vsk_CriticalSection_t vsk_CriticalSection</div><div class="ttdoc">Critical section instance.</div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.c:3</div></div>
+<div class="ttc" id="agroup__vsk__CriticalSection_html_ga63a3c8091ec92922dff12c2284ddda6d"><div class="ttname"><a href="group__vsk__CriticalSection.html#ga63a3c8091ec92922dff12c2284ddda6d">vsk_CriticalSection_OnEnter_t</a></div><div class="ttdeci">void(* vsk_CriticalSection_OnEnter_t)(void)</div><div class="ttdoc">On enter callback.</div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.h:22</div></div>
+<div class="ttc" id="agroup__vsk__CriticalSection_html_ga6f196403cdb70cc55766755885ddd087"><div class="ttname"><a href="group__vsk__CriticalSection.html#ga6f196403cdb70cc55766755885ddd087">vsk_CriticalSection_OnExit_t</a></div><div class="ttdeci">void(* vsk_CriticalSection_OnExit_t)(void)</div><div class="ttdoc">On exit callback.</div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.h:27</div></div>
+<div class="ttc" id="agroup__vsk__CriticalSection_html_gab9a89f794a129a10851eaf2c45ec2bb3"><div class="ttname"><a href="group__vsk__CriticalSection.html#gab9a89f794a129a10851eaf2c45ec2bb3">vsk_CriticalSection_init</a></div><div class="ttdeci">vsk_CriticalSection_t * vsk_CriticalSection_init(vsk_CriticalSection_t *const self, vsk_CriticalSection_OnEnter_t const onEnter, vsk_CriticalSection_OnExit_t const onExit)</div><div class="ttdoc">Initializes the critical section.</div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.c:5</div></div>
+<div class="ttc" id="agroup__vsk__CriticalSection_html_gac2a635d254fa29a1a4c21b96e791c163"><div class="ttname"><a href="group__vsk__CriticalSection.html#gac2a635d254fa29a1a4c21b96e791c163">vsk_CriticalSection_enter</a></div><div class="ttdeci">void vsk_CriticalSection_enter(vsk_CriticalSection_t *const self)</div><div class="ttdoc">Enters a critical section.</div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.c:16</div></div>
+<div class="ttc" id="agroup__vsk__CriticalSection_html_gaf137dbd1d06386270ff0baaac2f05e4b"><div class="ttname"><a href="group__vsk__CriticalSection.html#gaf137dbd1d06386270ff0baaac2f05e4b">vsk_CriticalSection_exit</a></div><div class="ttdeci">void vsk_CriticalSection_exit(vsk_CriticalSection_t *const self)</div><div class="ttdoc">Exits a critical section.</div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.c:21</div></div>
+<div class="ttc" id="astructvsk__CriticalSection_html"><div class="ttname"><a href="structvsk__CriticalSection.html">vsk_CriticalSection</a></div><div class="ttdoc">Critical section.</div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.h:32</div></div>
+<div class="ttc" id="astructvsk__CriticalSection_html_a64a2b300bf206781a3eb64fd53fa373b"><div class="ttname"><a href="structvsk__CriticalSection.html#a64a2b300bf206781a3eb64fd53fa373b">vsk_CriticalSection::onExit</a></div><div class="ttdeci">vsk_CriticalSection_OnExit_t onExit</div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.h:34</div></div>
+<div class="ttc" id="astructvsk__CriticalSection_html_a90205f632a6b69bad3f5d3ec6fe641b6"><div class="ttname"><a href="structvsk__CriticalSection.html#a90205f632a6b69bad3f5d3ec6fe641b6">vsk_CriticalSection::onEnter</a></div><div class="ttdeci">vsk_CriticalSection_OnEnter_t onEnter</div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.h:33</div></div>
+<div class="ttc" id="astructvsk__CriticalSection_html_aec2e647effa3ab618c75ca0dd89428e8"><div class="ttname"><a href="structvsk__CriticalSection.html#aec2e647effa3ab618c75ca0dd89428e8">vsk_CriticalSection::nestingLevels</a></div><div class="ttdeci">uint8_t volatile nestingLevels</div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.h:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>vsk_CriticalSection.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="vsk__CriticalSection_8h.html">vsk_CriticalSection.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
