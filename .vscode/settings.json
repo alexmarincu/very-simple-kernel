@@ -1,7 +1,6 @@
 {
     "ceedlingExplorer.debugConfiguration": "Test Debug",
     "ceedlingExplorer.projectPath": ".",
-    // c intellisense {
     "C_Cpp.default.compilerPath": "gcc",
     "C_Cpp.default.browse.path": [
         "${workspaceFolder}/src/**",
@@ -29,8 +28,6 @@
     "C/C++ Include Guard.Path Depth": 0,
     "C/C++ Include Guard.Path Skip": 0,
     "C/C++ Include Guard.Spaces After Endif": 1,
-    // } c intellisense
-    // c lint {
     "c-cpp-flylint.lizard.extraArgs": [
         "-Tcyclomatic_complexity=10",
         "-Tparameter_count=5",
@@ -50,24 +47,14 @@
         "--suppress=unusedStructMember",
         "--suppress=missingIncludeSystem",
         "--inline-suppr",
-        // Defines {
         "-DTEST_SOURCE_FILE",
-        // } Defines
-        // Includes {
-        // "-Ipath/",
-        // } Includes
-        // Excludes {
-        // "-ipath/",
-        // } Excludes
-        // Ignore 3rd party {
-        // "--suppress=*:path/*.h",
-        // } Ignore 3rd party
+        // "-I<path>/",
+        // "-i<path>/",
+        // "--suppress=*:<path>/*.h",
     ],
     "c-cpp-flylint.flexelint.enable": false,
     "c-cpp-flylint.clang.enable": false,
     "c-cpp-flylint.flawfinder.enable": false,
-    // } c lint
-    // python {
     "python.analysis.typeCheckingMode": "strict",
     "python.analysis.autoImportCompletions": true,
     "python.analysis.diagnosticMode": "workspace",
@@ -81,5 +68,4 @@
         "--max-line-length=200"
     ],
     "mypy-type-checker.reportingScope": "workspace",
-    // } python
 }
