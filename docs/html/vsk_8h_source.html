@@ -109,30 +109,82 @@ $(function(){initNavTree('vsk_8h_source.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">vsk.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef VSK_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define VSK_H</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;vsk_Assert.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;vsk_CriticalSection.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;vsk_TaskScheduler.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordtype">void</span> vsk_start(</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    uint16_t <span class="keyword">const</span>                   tickPeriodMillis,</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    vsk_TaskSchedulerOnStart <span class="keyword">const</span>   onStart,</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    vsk_TaskSchedulerOnIdle <span class="keyword">const</span>    onIdle,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    vsk_CriticalSectionOnEnter <span class="keyword">const</span> onCriticalSectionEnter,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    vsk_CriticalSectionOnExit <span class="keyword">const</span>  onCriticalSectionExit,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    vsk_AssertOnFail <span class="keyword">const</span>           onAssertFail</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">void</span> vsk_onTick(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif </span><span class="comment">// VSK_H</span></div>
+<a href="vsk_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef VSK_H</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define VSK_H</span><span class="comment"></span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * @defgroup vsk vsk</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @{</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="vsk__Assert_8h.html">vsk_Assert.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="vsk__CriticalSection_8h.html">vsk_CriticalSection.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="vsk__Task_8h.html">vsk_Task.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"></span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * @brief User defined functions for the vsk module</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structvsk__Interface.html">   18</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structvsk__Interface.html">vsk_Interface</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structvsk__Interface.html#a65a411a003d6919f36b3c00bc134b0f4">   19</a></span>    <a class="code hl_typedef" href="group__vsk__Task.html#ga21369dbc99562a008c41a52f0dcc7ab7">vsk_Task_Class_OnStart_t</a>      <a class="code hl_variable" href="structvsk__Interface.html#a65a411a003d6919f36b3c00bc134b0f4">onStart</a>;                <span class="comment">/**&lt; Called on task scheduler start. */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structvsk__Interface.html#a1fa266dbbad7803b7d05bc1c2ffb1bd7">   20</a></span>    <a class="code hl_typedef" href="group__vsk__Task.html#ga5d92f311df61b9be041a0ab5e65f425d">vsk_Task_Class_OnIdle_t</a>       <a class="code hl_variable" href="structvsk__Interface.html#a1fa266dbbad7803b7d05bc1c2ffb1bd7">onIdle</a>;                 <span class="comment">/**&lt; Called when the system is idle. */</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structvsk__Interface.html#ad0841c3bbcd399e380c5e0c752a7517d">   21</a></span>    <a class="code hl_typedef" href="group__vsk__Assert.html#ga59444aeccda7318c534f3cbf06d013de">vsk_Assert_OnFail_t</a>           <a class="code hl_variable" href="structvsk__Interface.html#ad0841c3bbcd399e380c5e0c752a7517d">onAssertFail</a>;           <span class="comment">/**&lt; Called when an assertion fails. */</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structvsk__Interface.html#acd752b446d77f6d68ba1bb55bfc9b253">   22</a></span>    <a class="code hl_typedef" href="group__vsk__CriticalSection.html#ga63a3c8091ec92922dff12c2284ddda6d">vsk_CriticalSection_OnEnter_t</a> <a class="code hl_variable" href="structvsk__Interface.html#acd752b446d77f6d68ba1bb55bfc9b253">onCriticalSectionEnter</a>; <span class="comment">/**&lt; Called on entering a critical section. */</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structvsk__Interface.html#abe54fd7f92689cfa6befc601f49a362c">   23</a></span>    <a class="code hl_typedef" href="group__vsk__CriticalSection.html#ga6f196403cdb70cc55766755885ddd087">vsk_CriticalSection_OnExit_t</a>  <a class="code hl_variable" href="structvsk__Interface.html#abe54fd7f92689cfa6befc601f49a362c">onCriticalSectionExit</a>;  <span class="comment">/**&lt; Called on exiting a critical section. */</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="group__vsk.html#ga2b510451ff30359ccd7df13995fdbedc">   24</a></span>} <a class="code hl_typedef" href="group__vsk.html#ga2b510451ff30359ccd7df13995fdbedc">vsk_Interface_t</a>;</div>
+</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"></span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @brief Initializes the vsk module.</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * @param tickPeriodMillis The period at which the system ticks in milliseconds</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * @param interface        The interface for user hooks and platform specific functions</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__vsk.html#ga65e2f1654cd5251eb8b540c70098c72e">vsk_init</a>(</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    uint16_t <span class="keyword">const</span>                tickPeriodMillis,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_struct" href="structvsk__Interface.html">vsk_Interface_t</a> <span class="keyword">const</span> * <span class="keyword">const</span> interface</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"></span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> * @brief Propagates the system tick in the vsk module</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * @remark Must be called from the system tick</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__vsk.html#ga4c4662b9ef8cebc12d12d7d41f910ef9">vsk_onTick</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"></span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * @brief Starts the task scheduler</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__vsk.html#ga4299bb91b6a137d48a59bd0f4799b0fa">vsk_startScheduler</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"></span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/** @} */</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif </span><span class="comment">// VSK_H</span></div>
+<div class="ttc" id="agroup__vsk__Assert_html_ga59444aeccda7318c534f3cbf06d013de"><div class="ttname"><a href="group__vsk__Assert.html#ga59444aeccda7318c534f3cbf06d013de">vsk_Assert_OnFail_t</a></div><div class="ttdeci">void(* vsk_Assert_OnFail_t)(void)</div><div class="ttdoc">On fail callback.</div><div class="ttdef"><b>Definition</b> vsk_Assert.h:22</div></div>
+<div class="ttc" id="agroup__vsk__CriticalSection_html_ga63a3c8091ec92922dff12c2284ddda6d"><div class="ttname"><a href="group__vsk__CriticalSection.html#ga63a3c8091ec92922dff12c2284ddda6d">vsk_CriticalSection_OnEnter_t</a></div><div class="ttdeci">void(* vsk_CriticalSection_OnEnter_t)(void)</div><div class="ttdoc">On enter callback.</div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.h:22</div></div>
+<div class="ttc" id="agroup__vsk__CriticalSection_html_ga6f196403cdb70cc55766755885ddd087"><div class="ttname"><a href="group__vsk__CriticalSection.html#ga6f196403cdb70cc55766755885ddd087">vsk_CriticalSection_OnExit_t</a></div><div class="ttdeci">void(* vsk_CriticalSection_OnExit_t)(void)</div><div class="ttdoc">On exit callback.</div><div class="ttdef"><b>Definition</b> vsk_CriticalSection.h:27</div></div>
+<div class="ttc" id="agroup__vsk__Task_html_ga21369dbc99562a008c41a52f0dcc7ab7"><div class="ttname"><a href="group__vsk__Task.html#ga21369dbc99562a008c41a52f0dcc7ab7">vsk_Task_Class_OnStart_t</a></div><div class="ttdeci">void(* vsk_Task_Class_OnStart_t)(void)</div><div class="ttdoc">On start callback.</div><div class="ttdef"><b>Definition</b> vsk_Task.h:20</div></div>
+<div class="ttc" id="agroup__vsk__Task_html_ga5d92f311df61b9be041a0ab5e65f425d"><div class="ttname"><a href="group__vsk__Task.html#ga5d92f311df61b9be041a0ab5e65f425d">vsk_Task_Class_OnIdle_t</a></div><div class="ttdeci">void(* vsk_Task_Class_OnIdle_t)(void)</div><div class="ttdoc">On idle callback.</div><div class="ttdef"><b>Definition</b> vsk_Task.h:25</div></div>
+<div class="ttc" id="agroup__vsk_html_ga2b510451ff30359ccd7df13995fdbedc"><div class="ttname"><a href="group__vsk.html#ga2b510451ff30359ccd7df13995fdbedc">vsk_Interface_t</a></div><div class="ttdeci">struct vsk_Interface vsk_Interface_t</div><div class="ttdoc">User defined functions for the vsk module.</div></div>
+<div class="ttc" id="agroup__vsk_html_ga4299bb91b6a137d48a59bd0f4799b0fa"><div class="ttname"><a href="group__vsk.html#ga4299bb91b6a137d48a59bd0f4799b0fa">vsk_startScheduler</a></div><div class="ttdeci">void vsk_startScheduler(void)</div><div class="ttdoc">Starts the task scheduler.</div><div class="ttdef"><b>Definition</b> vsk.c:35</div></div>
+<div class="ttc" id="agroup__vsk_html_ga4c4662b9ef8cebc12d12d7d41f910ef9"><div class="ttname"><a href="group__vsk.html#ga4c4662b9ef8cebc12d12d7d41f910ef9">vsk_onTick</a></div><div class="ttdeci">void vsk_onTick(void)</div><div class="ttdoc">Propagates the system tick in the vsk module.</div><div class="ttdef"><b>Definition</b> vsk.c:28</div></div>
+<div class="ttc" id="agroup__vsk_html_ga65e2f1654cd5251eb8b540c70098c72e"><div class="ttname"><a href="group__vsk.html#ga65e2f1654cd5251eb8b540c70098c72e">vsk_init</a></div><div class="ttdeci">void vsk_init(uint16_t const tickPeriodMillis, vsk_Interface_t const *const interface)</div><div class="ttdoc">Initializes the vsk module.</div><div class="ttdef"><b>Definition</b> vsk.c:8</div></div>
+<div class="ttc" id="astructvsk__Interface_html"><div class="ttname"><a href="structvsk__Interface.html">vsk_Interface</a></div><div class="ttdoc">User defined functions for the vsk module.</div><div class="ttdef"><b>Definition</b> vsk.h:18</div></div>
+<div class="ttc" id="astructvsk__Interface_html_a1fa266dbbad7803b7d05bc1c2ffb1bd7"><div class="ttname"><a href="structvsk__Interface.html#a1fa266dbbad7803b7d05bc1c2ffb1bd7">vsk_Interface::onIdle</a></div><div class="ttdeci">vsk_Task_Class_OnIdle_t onIdle</div><div class="ttdef"><b>Definition</b> vsk.h:20</div></div>
+<div class="ttc" id="astructvsk__Interface_html_a65a411a003d6919f36b3c00bc134b0f4"><div class="ttname"><a href="structvsk__Interface.html#a65a411a003d6919f36b3c00bc134b0f4">vsk_Interface::onStart</a></div><div class="ttdeci">vsk_Task_Class_OnStart_t onStart</div><div class="ttdef"><b>Definition</b> vsk.h:19</div></div>
+<div class="ttc" id="astructvsk__Interface_html_abe54fd7f92689cfa6befc601f49a362c"><div class="ttname"><a href="structvsk__Interface.html#abe54fd7f92689cfa6befc601f49a362c">vsk_Interface::onCriticalSectionExit</a></div><div class="ttdeci">vsk_CriticalSection_OnExit_t onCriticalSectionExit</div><div class="ttdef"><b>Definition</b> vsk.h:23</div></div>
+<div class="ttc" id="astructvsk__Interface_html_acd752b446d77f6d68ba1bb55bfc9b253"><div class="ttname"><a href="structvsk__Interface.html#acd752b446d77f6d68ba1bb55bfc9b253">vsk_Interface::onCriticalSectionEnter</a></div><div class="ttdeci">vsk_CriticalSection_OnEnter_t onCriticalSectionEnter</div><div class="ttdef"><b>Definition</b> vsk.h:22</div></div>
+<div class="ttc" id="astructvsk__Interface_html_ad0841c3bbcd399e380c5e0c752a7517d"><div class="ttname"><a href="structvsk__Interface.html#ad0841c3bbcd399e380c5e0c752a7517d">vsk_Interface::onAssertFail</a></div><div class="ttdeci">vsk_Assert_OnFail_t onAssertFail</div><div class="ttdef"><b>Definition</b> vsk.h:21</div></div>
+<div class="ttc" id="avsk__Assert_8h_html"><div class="ttname"><a href="vsk__Assert_8h.html">vsk_Assert.h</a></div></div>
+<div class="ttc" id="avsk__CriticalSection_8h_html"><div class="ttname"><a href="vsk__CriticalSection_8h.html">vsk_CriticalSection.h</a></div></div>
+<div class="ttc" id="avsk__Task_8h_html"><div class="ttname"><a href="vsk__Task_8h.html">vsk_Task.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>vsk.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="vsk_8h.html">vsk.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

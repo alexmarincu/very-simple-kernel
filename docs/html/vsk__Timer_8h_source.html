@@ -109,50 +109,150 @@ $(function(){initNavTree('vsk__Timer_8h_source.html',''); initResizable(true); }
   <div class="headertitle"><div class="title">vsk_Timer.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef VSK_TIMER_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define VSK_TIMER_H</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer</a> <a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer</a>;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;ctb_DNode.h&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">typedef</span> void (*vsk_TimerCallback)(<span class="keywordtype">void</span> * <span class="keyword">const</span> obj);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structvsk__Timer.html">   14</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer</a> {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    ctb_DNode_t       node;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    uint32_t          delayMillis;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    uint32_t          periodMillis;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    vsk_TimerCallback callback;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> *            obj;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    uint32_t <span class="keyword">volatile</span> millisCountDown;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">bool</span> <span class="keyword">volatile</span> isRunning;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
+<a href="vsk__Timer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef VSK_TIMER_H</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define VSK_TIMER_H</span><span class="comment"></span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * @ingroup vsk</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @defgroup vsk_Timer vsk_Timer</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @{</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"></span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * @brief Timer class</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="group__vsk__Timer.html#ga233a944a65a875eded423c23311c1f12">   15</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structvsk__Timer__Class.html">vsk_Timer_Class</a> <a class="code hl_struct" href="structvsk__Timer__Class.html">vsk_Timer_Class_t</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"></span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * @brief Software timer</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="group__vsk__Timer.html#ga347f5c9228a28331690a35a7b730434b">   20</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer</a> <a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer_t</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"></span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * @brief Timer callback</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="group__vsk__Timer.html#ga7c316148ab5c8e723e9c397c050c9175">   25</a></span><span class="keyword">typedef</span> void (*<a class="code hl_typedef" href="group__vsk__Timer.html#ga7c316148ab5c8e723e9c397c050c9175">vsk_Timer_Callback_t</a>)(<span class="keywordtype">void</span> * <span class="keyword">const</span> <a class="code hl_variable" href="structvsk__Timer.html#aa31c04427a39e9378f0fc6fd04e4b9e2">obj</a>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;ctb_DList.h&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;ctb_DNode.h&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"></span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * @brief Timer class</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structvsk__Timer__Class.html">   35</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structvsk__Timer__Class.html">vsk_Timer_Class</a> {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structvsk__Timer__Class.html#adb24e5c7b8b7510c5ea1a7017743e00c">   36</a></span>    ctb_DList_t <a class="code hl_variable" href="structvsk__Timer__Class.html#adb24e5c7b8b7510c5ea1a7017743e00c">timers</a>; <span class="comment">/**&lt; List of registered timers */</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
 </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer</a> * vsk_Timer_init(</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer</a> * <span class="keyword">const</span>       self,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    uint32_t <span class="keyword">const</span>          delayMillis,</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    uint32_t <span class="keyword">const</span>          periodMillis,</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    vsk_TimerCallback <span class="keyword">const</span> callback,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> * <span class="keyword">const</span>            obj</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> vsk_Timer_start(<a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer</a> * <span class="keyword">const</span> self);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> vsk_Timer_stop(<a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer</a> * <span class="keyword">const</span> self);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">bool</span> vsk_Timer_isRunning(<a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer</a> * <span class="keyword">const</span> self);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keywordtype">void</span> vsk_Timer_onTick(<a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer</a> * <span class="keyword">const</span> self);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif </span><span class="comment">// VSK_TIMER_H</span></div>
-<div class="ttc" id="astructvsk__Timer_html"><div class="ttname"><a href="structvsk__Timer.html">vsk_Timer</a></div><div class="ttdef"><b>Definition</b> vsk_Timer.h:14</div></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"></span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * @brief Software timer</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structvsk__Timer.html">   42</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer</a> {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structvsk__Timer.html#ad070a53199267a8dc0c347f7b2cb1711">   43</a></span>    <a class="code hl_struct" href="structvsk__Timer__Class.html">vsk_Timer_Class_t</a> *  <a class="code hl_variable" href="structvsk__Timer.html#ad070a53199267a8dc0c347f7b2cb1711">cls</a>;          <span class="comment">/**&lt; Timer class reference */</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structvsk__Timer.html#a3339e7c50bd862befe7fd70d033884c7">   44</a></span>    ctb_DNode_t          <a class="code hl_variable" href="structvsk__Timer.html#a3339e7c50bd862befe7fd70d033884c7">node</a>;         <span class="comment">/**&lt; Node to allow timer to be added to a list */</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structvsk__Timer.html#a6503562ef522d9f21c3fb5ab5b91de17">   45</a></span>    uint32_t             <a class="code hl_variable" href="structvsk__Timer.html#a6503562ef522d9f21c3fb5ab5b91de17">delayMillis</a>;  <span class="comment">/**&lt; Initial delay of the timer in milliseconds */</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structvsk__Timer.html#a7001dae60485979741ff8822c14860f2">   46</a></span>    uint32_t             <a class="code hl_variable" href="structvsk__Timer.html#a7001dae60485979741ff8822c14860f2">periodMillis</a>; <span class="comment">/**&lt; Period of the timer after the initial delay in milliseconds */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structvsk__Timer.html#ac7121853670005eaa4df07ad6c707156">   47</a></span>    <a class="code hl_typedef" href="group__vsk__Timer.html#ga7c316148ab5c8e723e9c397c050c9175">vsk_Timer_Callback_t</a> <a class="code hl_variable" href="structvsk__Timer.html#ac7121853670005eaa4df07ad6c707156">callback</a>;     <span class="comment">/**&lt; Callback function (called on timer expiration) */</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structvsk__Timer.html#aa31c04427a39e9378f0fc6fd04e4b9e2">   48</a></span>    <span class="keywordtype">void</span> *               <a class="code hl_variable" href="structvsk__Timer.html#aa31c04427a39e9378f0fc6fd04e4b9e2">obj</a>;          <span class="comment">/**&lt; Object reference to pass to the callback (can be NULL) */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structvsk__Timer.html#a748101ffc6cc4fea4a74862ec0d65c6c">   49</a></span>    uint32_t <span class="keyword">volatile</span> <a class="code hl_variable" href="structvsk__Timer.html#a748101ffc6cc4fea4a74862ec0d65c6c">millisCountDown</a>; <span class="comment">/**&lt; Milliseconds until the timer expires */</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="structvsk__Timer.html#a5a7c9c870223cb34680269d6acf5687d">   50</a></span>    <span class="keywordtype">bool</span> <span class="keyword">volatile</span> <a class="code hl_variable" href="structvsk__Timer.html#a5a7c9c870223cb34680269d6acf5687d">isRunning</a>;           <span class="comment">/**&lt; Timer running state */</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"></span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> * @brief Timer class instance</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">extern</span> <a class="code hl_struct" href="structvsk__Timer__Class.html">vsk_Timer_Class_t</a> <a class="code hl_variable" href="group__vsk__Timer.html#ga08d19df2d1608e78e5bb66d7755d12d5">vsk_Timer_Class</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"></span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> * @brief Initializes the Timer class</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> * @param cls Timer class reference</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> * @return Initialized Timer class reference</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><a class="code hl_struct" href="structvsk__Timer__Class.html">vsk_Timer_Class_t</a> * <a class="code hl_function" href="group__vsk__Timer.html#ga4210ca85c479868d4a1a3da2e95494fd">vsk_Timer_Class_init</a>(<a class="code hl_struct" href="structvsk__Timer__Class.html">vsk_Timer_Class_t</a> * <span class="keyword">const</span> cls);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"></span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> * @brief Propagates the system tick to all timers</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> * @param cls Timer class reference</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__vsk__Timer.html#gaaa6f555cb9cc52d2ccfe3b57669a5f92">vsk_Timer_Class_onTick</a>(<a class="code hl_struct" href="structvsk__Timer__Class.html">vsk_Timer_Class_t</a> * <span class="keyword">const</span> cls);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"></span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * @brief Initializes a timer</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> * @param self Timer reference</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> * @param delayMillis Initial delay of the timer in milliseconds</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> * @param periodMillis Period of the timer after the initial delay in milliseconds</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"> * @param callback Callback function (called on timer expiration)</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> * @param obj Object reference to pass to the callback (can be NULL)</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"> * @return Initialized Timer reference</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer_t</a> * <a class="code hl_function" href="group__vsk__Timer.html#gacd58134c49004bf444a76addf063bebf">vsk_Timer_init</a>(</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer_t</a> * <span class="keyword">const</span>        self,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    uint32_t <span class="keyword">const</span>             delayMillis,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    uint32_t <span class="keyword">const</span>             periodMillis,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_typedef" href="group__vsk__Timer.html#ga7c316148ab5c8e723e9c397c050c9175">vsk_Timer_Callback_t</a> <span class="keyword">const</span> callback,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">void</span> * <span class="keyword">const</span>               obj</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"></span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> * @brief Starts the timer</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> * @param self Timer reference</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__vsk__Timer.html#ga96fcedafdcf96a844b0980650e98bf7e">vsk_Timer_start</a>(<a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer_t</a> * <span class="keyword">const</span> self);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"></span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> * @brief Stops the timer</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> * @param self Timer reference</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__vsk__Timer.html#ga0a696d7fffeb086ceecb0182fc8410c5">vsk_Timer_stop</a>(<a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer_t</a> * <span class="keyword">const</span> self);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"></span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> * @brief Checks if the timer is running</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> * @param self Timer reference</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"> * @return true if the timer is running</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"> * @return false if the timer is not running</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keywordtype">bool</span> <a class="code hl_function" href="group__vsk__Timer.html#ga8f5ae68a014df9daf0fb34f541a6603e">vsk_Timer_isRunning</a>(<a class="code hl_struct" href="structvsk__Timer.html">vsk_Timer_t</a> * <span class="keyword">const</span> self);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"></span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">/** @} */</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#endif </span><span class="comment">// VSK_TIMER_H</span></div>
+<div class="ttc" id="agroup__vsk__Timer_html_ga08d19df2d1608e78e5bb66d7755d12d5"><div class="ttname"><a href="group__vsk__Timer.html#ga08d19df2d1608e78e5bb66d7755d12d5">vsk_Timer_Class</a></div><div class="ttdeci">vsk_Timer_Class_t vsk_Timer_Class</div><div class="ttdoc">Timer class instance.</div><div class="ttdef"><b>Definition</b> vsk_Timer.c:6</div></div>
+<div class="ttc" id="agroup__vsk__Timer_html_ga0a696d7fffeb086ceecb0182fc8410c5"><div class="ttname"><a href="group__vsk__Timer.html#ga0a696d7fffeb086ceecb0182fc8410c5">vsk_Timer_stop</a></div><div class="ttdeci">void vsk_Timer_stop(vsk_Timer_t *const self)</div><div class="ttdoc">Stops the timer.</div><div class="ttdef"><b>Definition</b> vsk_Timer.c:64</div></div>
+<div class="ttc" id="agroup__vsk__Timer_html_ga4210ca85c479868d4a1a3da2e95494fd"><div class="ttname"><a href="group__vsk__Timer.html#ga4210ca85c479868d4a1a3da2e95494fd">vsk_Timer_Class_init</a></div><div class="ttdeci">vsk_Timer_Class_t * vsk_Timer_Class_init(vsk_Timer_Class_t *const cls)</div><div class="ttdoc">Initializes the Timer class.</div><div class="ttdef"><b>Definition</b> vsk_Timer.c:13</div></div>
+<div class="ttc" id="agroup__vsk__Timer_html_ga7c316148ab5c8e723e9c397c050c9175"><div class="ttname"><a href="group__vsk__Timer.html#ga7c316148ab5c8e723e9c397c050c9175">vsk_Timer_Callback_t</a></div><div class="ttdeci">void(* vsk_Timer_Callback_t)(void *const obj)</div><div class="ttdoc">Timer callback.</div><div class="ttdef"><b>Definition</b> vsk_Timer.h:25</div></div>
+<div class="ttc" id="agroup__vsk__Timer_html_ga8f5ae68a014df9daf0fb34f541a6603e"><div class="ttname"><a href="group__vsk__Timer.html#ga8f5ae68a014df9daf0fb34f541a6603e">vsk_Timer_isRunning</a></div><div class="ttdeci">bool vsk_Timer_isRunning(vsk_Timer_t *const self)</div><div class="ttdoc">Checks if the timer is running.</div><div class="ttdef"><b>Definition</b> vsk_Timer.c:70</div></div>
+<div class="ttc" id="agroup__vsk__Timer_html_ga96fcedafdcf96a844b0980650e98bf7e"><div class="ttname"><a href="group__vsk__Timer.html#ga96fcedafdcf96a844b0980650e98bf7e">vsk_Timer_start</a></div><div class="ttdeci">void vsk_Timer_start(vsk_Timer_t *const self)</div><div class="ttdoc">Starts the timer.</div><div class="ttdef"><b>Definition</b> vsk_Timer.c:58</div></div>
+<div class="ttc" id="agroup__vsk__Timer_html_gaaa6f555cb9cc52d2ccfe3b57669a5f92"><div class="ttname"><a href="group__vsk__Timer.html#gaaa6f555cb9cc52d2ccfe3b57669a5f92">vsk_Timer_Class_onTick</a></div><div class="ttdeci">void vsk_Timer_Class_onTick(vsk_Timer_Class_t *const cls)</div><div class="ttdoc">Propagates the system tick to all timers.</div><div class="ttdef"><b>Definition</b> vsk_Timer.c:31</div></div>
+<div class="ttc" id="agroup__vsk__Timer_html_gacd58134c49004bf444a76addf063bebf"><div class="ttname"><a href="group__vsk__Timer.html#gacd58134c49004bf444a76addf063bebf">vsk_Timer_init</a></div><div class="ttdeci">vsk_Timer_t * vsk_Timer_init(vsk_Timer_t *const self, uint32_t const delayMillis, uint32_t const periodMillis, vsk_Timer_Callback_t const callback, void *const obj)</div><div class="ttdoc">Initializes a timer.</div><div class="ttdef"><b>Definition</b> vsk_Timer.c:35</div></div>
+<div class="ttc" id="astructvsk__Timer__Class_html"><div class="ttname"><a href="structvsk__Timer__Class.html">vsk_Timer_Class</a></div><div class="ttdoc">Timer class.</div><div class="ttdef"><b>Definition</b> vsk_Timer.h:35</div></div>
+<div class="ttc" id="astructvsk__Timer__Class_html_adb24e5c7b8b7510c5ea1a7017743e00c"><div class="ttname"><a href="structvsk__Timer__Class.html#adb24e5c7b8b7510c5ea1a7017743e00c">vsk_Timer_Class::timers</a></div><div class="ttdeci">ctb_DList_t timers</div><div class="ttdef"><b>Definition</b> vsk_Timer.h:36</div></div>
+<div class="ttc" id="astructvsk__Timer_html"><div class="ttname"><a href="structvsk__Timer.html">vsk_Timer</a></div><div class="ttdoc">Software timer.</div><div class="ttdef"><b>Definition</b> vsk_Timer.h:42</div></div>
+<div class="ttc" id="astructvsk__Timer_html_a3339e7c50bd862befe7fd70d033884c7"><div class="ttname"><a href="structvsk__Timer.html#a3339e7c50bd862befe7fd70d033884c7">vsk_Timer::node</a></div><div class="ttdeci">ctb_DNode_t node</div><div class="ttdef"><b>Definition</b> vsk_Timer.h:44</div></div>
+<div class="ttc" id="astructvsk__Timer_html_a5a7c9c870223cb34680269d6acf5687d"><div class="ttname"><a href="structvsk__Timer.html#a5a7c9c870223cb34680269d6acf5687d">vsk_Timer::isRunning</a></div><div class="ttdeci">bool volatile isRunning</div><div class="ttdef"><b>Definition</b> vsk_Timer.h:50</div></div>
+<div class="ttc" id="astructvsk__Timer_html_a6503562ef522d9f21c3fb5ab5b91de17"><div class="ttname"><a href="structvsk__Timer.html#a6503562ef522d9f21c3fb5ab5b91de17">vsk_Timer::delayMillis</a></div><div class="ttdeci">uint32_t delayMillis</div><div class="ttdef"><b>Definition</b> vsk_Timer.h:45</div></div>
+<div class="ttc" id="astructvsk__Timer_html_a7001dae60485979741ff8822c14860f2"><div class="ttname"><a href="structvsk__Timer.html#a7001dae60485979741ff8822c14860f2">vsk_Timer::periodMillis</a></div><div class="ttdeci">uint32_t periodMillis</div><div class="ttdef"><b>Definition</b> vsk_Timer.h:46</div></div>
+<div class="ttc" id="astructvsk__Timer_html_a748101ffc6cc4fea4a74862ec0d65c6c"><div class="ttname"><a href="structvsk__Timer.html#a748101ffc6cc4fea4a74862ec0d65c6c">vsk_Timer::millisCountDown</a></div><div class="ttdeci">uint32_t volatile millisCountDown</div><div class="ttdef"><b>Definition</b> vsk_Timer.h:49</div></div>
+<div class="ttc" id="astructvsk__Timer_html_aa31c04427a39e9378f0fc6fd04e4b9e2"><div class="ttname"><a href="structvsk__Timer.html#aa31c04427a39e9378f0fc6fd04e4b9e2">vsk_Timer::obj</a></div><div class="ttdeci">void * obj</div><div class="ttdef"><b>Definition</b> vsk_Timer.h:48</div></div>
+<div class="ttc" id="astructvsk__Timer_html_ac7121853670005eaa4df07ad6c707156"><div class="ttname"><a href="structvsk__Timer.html#ac7121853670005eaa4df07ad6c707156">vsk_Timer::callback</a></div><div class="ttdeci">vsk_Timer_Callback_t callback</div><div class="ttdef"><b>Definition</b> vsk_Timer.h:47</div></div>
+<div class="ttc" id="astructvsk__Timer_html_ad070a53199267a8dc0c347f7b2cb1711"><div class="ttname"><a href="structvsk__Timer.html#ad070a53199267a8dc0c347f7b2cb1711">vsk_Timer::cls</a></div><div class="ttdeci">vsk_Timer_Class_t * cls</div><div class="ttdef"><b>Definition</b> vsk_Timer.h:43</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>vsk_Timer.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="vsk__Timer_8h.html">vsk_Timer.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

@@ -109,40 +109,78 @@ $(function(){initNavTree('vsk__EventSubscription_8h_source.html',''); initResiza
   <div class="headertitle"><div class="title">vsk_EventSubscription.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef VSK_EVENTSUBSCRIPTION_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define VSK_EVENTSUBSCRIPTION_H</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structvsk__EventSubscription.html">vsk_EventSubscription</a> <a class="code hl_struct" href="structvsk__EventSubscription.html">vsk_EventSubscription</a>;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;vsk_Inbox.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;vsk_Message.h&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structvsk__EventSubscription.html">   10</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structvsk__EventSubscription.html">vsk_EventSubscription</a> {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    ctb_DNode_t node;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_struct" href="structvsk__Inbox.html">vsk_Inbox</a> * inbox;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_struct" href="structvsk__Message.html">vsk_Message</a> message;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
+<a href="vsk__EventSubscription_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef VSK_EVENTSUBSCRIPTION_H</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define VSK_EVENTSUBSCRIPTION_H</span><span class="comment"></span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * @ingroup vsk</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @defgroup vsk_EventSubscription vsk_EventSubscription</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @{</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"></span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * @brief Event subscription</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="group__vsk__EventSubscription.html#ga750c5d1779cdf066e4226ffff82e19ac">   15</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structvsk__EventSubscription.html">vsk_EventSubscription</a> <a class="code hl_struct" href="structvsk__EventSubscription.html">vsk_EventSubscription_t</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="vsk__Inbox_8h.html">vsk_Inbox.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="vsk__Message_8h.html">vsk_Message.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * @brief Event subscription</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structvsk__EventSubscription.html">   23</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structvsk__EventSubscription.html">vsk_EventSubscription</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structvsk__EventSubscription.html#a3b24d6318a54c59e50032d27b0f4fc80">   24</a></span>    ctb_DNode_t   <a class="code hl_variable" href="structvsk__EventSubscription.html#a3b24d6318a54c59e50032d27b0f4fc80">node</a>;    <span class="comment">/**&lt; Node to allow event subscription to be added to a list */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structvsk__EventSubscription.html#a93ed1c7a8d336cdf94c1ecb87acc7242">   25</a></span>    <a class="code hl_struct" href="structvsk__Inbox.html">vsk_Inbox_t</a> * <a class="code hl_variable" href="structvsk__EventSubscription.html#a93ed1c7a8d336cdf94c1ecb87acc7242">inbox</a>;   <span class="comment">/**&lt; Inbox to post the event message to */</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structvsk__EventSubscription.html#a0348d0da84692a98d875573cd39d5bc5">   26</a></span>    <a class="code hl_struct" href="structvsk__Message.html">vsk_Message_t</a> <a class="code hl_variable" href="structvsk__EventSubscription.html#a0348d0da84692a98d875573cd39d5bc5">message</a>; <span class="comment">/**&lt; Message to post to the inbox */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
 </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><a class="code hl_struct" href="structvsk__EventSubscription.html">vsk_EventSubscription</a> * vsk_EventSubscription_init(</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_struct" href="structvsk__EventSubscription.html">vsk_EventSubscription</a> * <span class="keyword">const</span> self,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_struct" href="structvsk__Inbox.html">vsk_Inbox</a> * <span class="keyword">const</span>             inbox,</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    vsk_MessageHandler <span class="keyword">const</span>      handler,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> * <span class="keyword">const</span>                  obj</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> vsk_EventSubscription_publish(<a class="code hl_struct" href="structvsk__EventSubscription.html">vsk_EventSubscription</a> * <span class="keyword">const</span> self);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif </span><span class="comment">// VSK_EVENTSUBSCRIPTION_H</span></div>
-<div class="ttc" id="astructvsk__EventSubscription_html"><div class="ttname"><a href="structvsk__EventSubscription.html">vsk_EventSubscription</a></div><div class="ttdef"><b>Definition</b> vsk_EventSubscription.h:10</div></div>
-<div class="ttc" id="astructvsk__Inbox_html"><div class="ttname"><a href="structvsk__Inbox.html">vsk_Inbox</a></div><div class="ttdef"><b>Definition</b> vsk_Inbox.h:11</div></div>
-<div class="ttc" id="astructvsk__Message_html"><div class="ttname"><a href="structvsk__Message.html">vsk_Message</a></div><div class="ttdef"><b>Definition</b> vsk_Message.h:10</div></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"></span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * @brief Initializes an event subscription</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * @param self Event subscription reference</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * @param inbox Inbox to post the event message to</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * @param handler Message handler to be called when the event is dispatched</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * @param obj Object reference to pass to the handler</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * @return Initialized event subscription</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><a class="code hl_struct" href="structvsk__EventSubscription.html">vsk_EventSubscription_t</a> * <a class="code hl_function" href="group__vsk__EventSubscription.html#ga310155e7911a33e6024a7be5f9e2ce84">vsk_EventSubscription_init</a>(</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_struct" href="structvsk__EventSubscription.html">vsk_EventSubscription_t</a> * <span class="keyword">const</span> self,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_struct" href="structvsk__Inbox.html">vsk_Inbox_t</a> * <span class="keyword">const</span>             inbox,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_typedef" href="group__vsk__Message.html#gab141645cfd4038a886f43b8a61b699cf">vsk_Message_Handler_t</a> <span class="keyword">const</span>     handler,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> * <span class="keyword">const</span>                    obj</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"></span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * @brief Publishes the event message to the associated inbox</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * @param self Event subscription reference</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__vsk__EventSubscription.html#gad0f073438b2cbbdd3738d7e1d679352d">vsk_EventSubscription_publish</a>(<a class="code hl_struct" href="structvsk__EventSubscription.html">vsk_EventSubscription_t</a> * <span class="keyword">const</span> self);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"></span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/** @} */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif </span><span class="comment">// VSK_EVENTSUBSCRIPTION_H</span></div>
+<div class="ttc" id="agroup__vsk__EventSubscription_html_ga310155e7911a33e6024a7be5f9e2ce84"><div class="ttname"><a href="group__vsk__EventSubscription.html#ga310155e7911a33e6024a7be5f9e2ce84">vsk_EventSubscription_init</a></div><div class="ttdeci">vsk_EventSubscription_t * vsk_EventSubscription_init(vsk_EventSubscription_t *const self, vsk_Inbox_t *const inbox, vsk_Message_Handler_t const handler, void *const obj)</div><div class="ttdoc">Initializes an event subscription.</div><div class="ttdef"><b>Definition</b> vsk_EventSubscription.c:3</div></div>
+<div class="ttc" id="agroup__vsk__EventSubscription_html_gad0f073438b2cbbdd3738d7e1d679352d"><div class="ttname"><a href="group__vsk__EventSubscription.html#gad0f073438b2cbbdd3738d7e1d679352d">vsk_EventSubscription_publish</a></div><div class="ttdeci">void vsk_EventSubscription_publish(vsk_EventSubscription_t *const self)</div><div class="ttdoc">Publishes the event message to the associated inbox.</div><div class="ttdef"><b>Definition</b> vsk_EventSubscription.c:14</div></div>
+<div class="ttc" id="agroup__vsk__Message_html_gab141645cfd4038a886f43b8a61b699cf"><div class="ttname"><a href="group__vsk__Message.html#gab141645cfd4038a886f43b8a61b699cf">vsk_Message_Handler_t</a></div><div class="ttdeci">void(* vsk_Message_Handler_t)(void *const obj)</div><div class="ttdoc">Message handler.</div><div class="ttdef"><b>Definition</b> vsk_Message.h:22</div></div>
+<div class="ttc" id="astructvsk__EventSubscription_html"><div class="ttname"><a href="structvsk__EventSubscription.html">vsk_EventSubscription</a></div><div class="ttdoc">Event subscription.</div><div class="ttdef"><b>Definition</b> vsk_EventSubscription.h:23</div></div>
+<div class="ttc" id="astructvsk__EventSubscription_html_a0348d0da84692a98d875573cd39d5bc5"><div class="ttname"><a href="structvsk__EventSubscription.html#a0348d0da84692a98d875573cd39d5bc5">vsk_EventSubscription::message</a></div><div class="ttdeci">vsk_Message_t message</div><div class="ttdef"><b>Definition</b> vsk_EventSubscription.h:26</div></div>
+<div class="ttc" id="astructvsk__EventSubscription_html_a3b24d6318a54c59e50032d27b0f4fc80"><div class="ttname"><a href="structvsk__EventSubscription.html#a3b24d6318a54c59e50032d27b0f4fc80">vsk_EventSubscription::node</a></div><div class="ttdeci">ctb_DNode_t node</div><div class="ttdef"><b>Definition</b> vsk_EventSubscription.h:24</div></div>
+<div class="ttc" id="astructvsk__EventSubscription_html_a93ed1c7a8d336cdf94c1ecb87acc7242"><div class="ttname"><a href="structvsk__EventSubscription.html#a93ed1c7a8d336cdf94c1ecb87acc7242">vsk_EventSubscription::inbox</a></div><div class="ttdeci">vsk_Inbox_t * inbox</div><div class="ttdef"><b>Definition</b> vsk_EventSubscription.h:25</div></div>
+<div class="ttc" id="astructvsk__Inbox_html"><div class="ttname"><a href="structvsk__Inbox.html">vsk_Inbox</a></div><div class="ttdoc">Inbox.</div><div class="ttdef"><b>Definition</b> vsk_Inbox.h:36</div></div>
+<div class="ttc" id="astructvsk__Message_html"><div class="ttname"><a href="structvsk__Message.html">vsk_Message</a></div><div class="ttdoc">Message.</div><div class="ttdef"><b>Definition</b> vsk_Message.h:27</div></div>
+<div class="ttc" id="avsk__Inbox_8h_html"><div class="ttname"><a href="vsk__Inbox_8h.html">vsk_Inbox.h</a></div></div>
+<div class="ttc" id="avsk__Message_8h_html"><div class="ttname"><a href="vsk__Message_8h.html">vsk_Message.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>vsk_EventSubscription.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="vsk__EventSubscription_8h.html">vsk_EventSubscription.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

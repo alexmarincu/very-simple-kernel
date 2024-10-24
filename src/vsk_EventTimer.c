@@ -1,20 +1,19 @@
-/*----------------------------------------------------------------------------*/
 #include "vsk_EventTimer.h"
-/*----------------------------------------------------------------------------*/
-static void vsk_raiseEvent(vsk_EventTimer * const self) {
+
+static void raiseEvent(vsk_EventTimer_t * const self) {
     vsk_Event_raise(self->event);
 }
-/*----------------------------------------------------------------------------*/
+
 // cppcheck-suppress unusedFunction // API function
-vsk_EventTimer * vsk_EventTimer_init(
-    vsk_EventTimer * const self,
-    uint32_t const         delayMillis,
-    uint32_t const         periodMillis,
-    vsk_Event * const      event
+vsk_EventTimer_t * vsk_EventTimer_init(
+    vsk_EventTimer_t * const self,
+    uint32_t const           delayMillis,
+    uint32_t const           periodMillis,
+    vsk_Event_t * const      event
 ) {
     vsk_Timer_init(
-        (vsk_Timer *)self, delayMillis, periodMillis,
-        (vsk_TimerCallback)vsk_raiseEvent, self
+        (vsk_Timer_t *)self, delayMillis, periodMillis,
+        (vsk_Timer_Callback_t)raiseEvent, self
     );
     self->event = event;
     return self;

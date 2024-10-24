@@ -1,25 +1,65 @@
-/*----------------------------------------------------------------------------*/
+/**
+ * @file
+ */
 #ifndef VSK_STATE_H
 #define VSK_STATE_H
-/*----------------------------------------------------------------------------*/
-typedef struct vsk_State vsk_State;
-/*----------------------------------------------------------------------------*/
-#include <stdbool.h>
-/*----------------------------------------------------------------------------*/
+/**
+ * @ingroup vsk
+ * @defgroup vsk_State vsk_State
+ * @{
+ */
+
+/**
+ * @brief State
+ */
+typedef struct vsk_State vsk_State_t;
+
 #include "vsk_StateContext.h"
-/*----------------------------------------------------------------------------*/
-typedef void (*vsk_StateOnEnter)(vsk_State * const self);
-typedef void (*vsk_StateOnExit)(vsk_State * const self);
-/*----------------------------------------------------------------------------*/
+#include <stdbool.h>
+
+/**
+ * @brief On enter callback
+ */
+typedef void (*vsk_State_OnEnter_t)(vsk_State_t * const self);
+
+/**
+ * @brief On exit callback
+ */
+typedef void (*vsk_State_OnExit_t)(vsk_State_t * const self);
+
+/**
+ * @brief State
+ */
 struct vsk_State {
-    vsk_StateContext * stateContext;
-    vsk_StateOnEnter   onEnter;
-    vsk_StateOnExit    onExit;
+    vsk_StateContext_t * stateContext; /**< State context */
+    vsk_State_OnEnter_t  onEnter;      /**< On enter callback */
+    vsk_State_OnExit_t   onExit;       /**< On exit callback */
 };
-/*----------------------------------------------------------------------------*/
-vsk_State * vsk_State_init(
-    vsk_State * const self, vsk_StateContext * const stateContext
+
+/**
+ * @brief Initializes a state
+ *
+ * @param self State reference
+ * @param stateContext Corresponding state context
+ * @return Initialized state reference
+ */
+vsk_State_t * vsk_State_init(
+    vsk_State_t * const self, vsk_StateContext_t * const stateContext
 );
-void vsk_State_onEnter(vsk_State * const self);
-void vsk_State_onExit(vsk_State * const self);
+
+/**
+ * @brief Executes entry logic
+ *
+ * @param self State reference
+ */
+void vsk_State_onEnter(vsk_State_t * const self);
+
+/**
+ * @brief Executes exit logic
+ *
+ * @param self State reference
+ */
+void vsk_State_onExit(vsk_State_t * const self);
+
+/** @} */
 #endif // VSK_STATE_H
